@@ -1,11 +1,11 @@
 (eval-when (:load-toplevel :compile-toplevel :execute)
   #+sbcl  (require :util)
   #+sbcl  (ql:quickload :closure-html)
-  #+sbcl  (ql:quickload :drakma)
+  (ql:quickload :drakma)
   #+clisp (ql:quickload :util)
   #+clisp (ql:quickload :closure-html))
 
-(declaim (optimize (speed 3) (safety 0) (debug 0) (space 0) (compilation-speed 0)))
+;; (declaim (optimize (speed 3) (safety 0) (debug 0) (space 0) (compilation-speed 0)))
 
 (defpackage #:news-base
   (:use :cl :util :iterate)
@@ -17,12 +17,14 @@
 (defparameter folding-length	34)
 (defparameter topdir		"f:/Org/")
 (defparameter terminal-char     '("。" "、" "ー" "」" ")" "）" "”"))
-(defparameter starting-char	'("「" "(" "（" "“"))
+(defparameter starting-char	'("「" "(" "『" "（" "“"))
 
 (defun string-fold (string)
+  "指定された文字数(news-base::folding-length)で文字列を折り返し、行頭に空白を付けたす。"
   (labels ((inner (subst r)
 	     (if (>= folding-length (length subst))
 		 (format nil "~{   ~A~^~%~}"
+			 ;; 最後に空行が出力されないようにする処理
 			 (if (string= subst "")
 			     (reverse r)
 			     (reverse (cons subst r))))
@@ -31,8 +33,13 @@
 			(previous (subseq subst (1- flen) flen))
 			(_flen
 			 (cond
+			   ;; 折り返し文字の次の字が「。」や「、」のと
+			   ;; きに、1文字繰り上げて、「。」「、」が行の
+			   ;; 最後に来るようにする。(禁則処理)
 			   ((member nextS terminal-char :test #'equal)
 			    (1+ flen))
+			   ;; 折り返し文字が「「」などにならないように
+			   ;; する。
 			   ((member previous starting-char :test #'equal)
 			    (1- flen))
 			   (t flen))))
@@ -79,7 +86,11 @@
 		#:string-value
 		#:evaluate
 		#:with-namespaces)
+  #+sbcl
   (:import-from #:sb-ext
+		#:octets-to-string)
+  #+clisp
+  (:import-from #:babel
 		#:octets-to-string)
   (:import-from #:drakma
 		#:http-request)
@@ -106,7 +117,7 @@
 
 (defun get-page (url)
   (octets-to-string (http-request url :external-format-in :dummy)
-		    :external-format :SJIS))
+		    :external-format #+sbcl :SJIS #+clisp charset:shift-jis))
 
 (defun get-stp (url)
   (chtml:parse (get-page url) (stp:make-builder)))
@@ -333,7 +344,7 @@
   (with-open-file (op (news-org:this-month-name)
 		      :direction :output
 		      :if-exists :append
-		      :external-format :UTF8)
+		      :external-format #+sbcl :UTF8 #+clisp charset:utf-8)
     (funcall func op)))
 
 (defun org-header-date (day op)

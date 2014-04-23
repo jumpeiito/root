@@ -74,6 +74,24 @@
   (merge-pathnames topdir
 		   (this-month-basename)))
 
+(defun ignore-comment-line (string)
+  (cl-ppcre:regex-replace-all "#.+?\\n" string ""))
+
+(defun read-file (filename)
+  (call-with-input-file2 filename
+    (lambda (ip)
+      (loop
+	 :for i = (read-char ip nil nil nil)
+	 :while i
+	 :collect i :into pot
+	 :finally (return (ignore-comment-line (COERCE POT 'STRING)))))))
+
+(defun split-by-date (filename)
+  (cl-ppcre:split "\\* " (read-file filename)))
+
+(defstruct org-article
+  date name title point length)
+
 (defpackage #:news-akahata
   (:use :cl :util :iterate)
   (:import-from #:local-time

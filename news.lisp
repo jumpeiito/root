@@ -80,7 +80,7 @@
    (list	 :accessor list->    :initarg :list :initform nil)))
 
 (defclass AKAHATA (PAPER)
-  ((date	:accessor date-> :initarg :date :initform (local-time::today))))
+  ((date	:accessor date-> :initarg :date :initform (today))))
 
 (defun prelude-action (string)
   "<br/>が消えてしまうので、他のもので段落区切りを付けておく。"
@@ -123,12 +123,12 @@
 		      node)))
 
 (defun make-parser (stp &key xpath getfunc (remove-if-not #'identity))
-  (xpath:with-namespaces (("h" "http://www.w3.org/1999/xhtml"))
+  (with-namespaces (("h" "http://www.w3.org/1999/xhtml"))
     (remove-if-not
      remove-if-not
-     (xpath:map-node-set->list
+     (map-node-set->list
       getfunc
-      (xpath:evaluate xpath stp)))))
+      (evaluate xpath stp)))))
 
 (defun ordinary-body-parser (stp)
   (make-parser stp
@@ -137,23 +137,22 @@
 
 (defun ordinary-title-parser (stp)
   (make-parser stp
-	       ;; :xpath "//h:h3/h:a"
 	       :xpath "//h:div[@class='blogbody']/h:h3[@class='title']/h:a"
-	       :getfunc #'xpath:string-value))
+	       :getfunc #'string-value))
 
 (defun akahata-title-parser (stp)
   (make-parser stp
 	       :xpath "//h:li[@class='newslist']"
-	       :getfunc #'xpath:string-value))
+	       :getfunc #'string-value))
 
 (defun akahata-date-parser (stp)
   (make-parser stp
 	       :xpath "//h:li[@class='current']/h:a"
-	       :getfunc #'xpath:string-value))
+	       :getfunc #'string-value))
 
 (defun today-from-stp (stp)
   (util::strdt (format nil "~A年~A"
-		       (local-time::timestamp-year (local-time::today))
+		       (timestamp-year (today))
 		       (car (akahata-date-parser stp)))))
 
 (defun node-to-href (node)
@@ -164,9 +163,9 @@
 
 (defun make-akahata-url (date &key (page "index.html"))
   (format nil "http://www.jcp.or.jp/akahata/aik14/~A-~2,'0d-~2,'0d/~A"
-	  (local-time:timestamp-year date)
-	  (local-time:timestamp-month date)
-	  (local-time:timestamp-day date)
+	  (timestamp-year date)
+	  (timestamp-month date)
+	  (timestamp-day date)
 	  page))
 
 (defun node-to-href-url (date node)
@@ -176,7 +175,7 @@
   (lambda (node)
     (make-parser (get-stp (node-to-href-url date node))
 		 :xpath "//h:div[@id='content']//h:p"
-		 :getfunc #'xpath::string-value
+		 :getfunc #'string-value
 		 :remove-if-not
 		 (lambda (str)
 		   (and (not (string= "" str))

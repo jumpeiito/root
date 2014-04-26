@@ -1,0 +1,21 @@
+--- shell-command.orig.el	2009-04-28 11:41:37.000000000 +0900
++++ shell-command.el	2008-09-02 20:07:26.000000000 +0900
+@@ -132,6 +132,9 @@
+   :type 'string
+   :group 'shell-command)
+ 
++(defvar shell-command-minibuffer-map (make-sparse-keymap)
++  "*Keymap for shell-command.")
++
+ (put 'shell-command/static-if 'lisp-indent-function 2)
+ (defmacro shell-command/static-if (cond then &rest else)
+   (if (eval cond) then (cons 'progn else)))
+@@ -228,7 +231,7 @@
+   (format-string current-directory &optional initial-contents
+ 		 user-keymap read hist)
+   "Read a command string in the minibuffer, with completion."
+-  (let ((keymap (make-sparse-keymap))
++  (let ((keymap shell-command-minibuffer-map)
+ 	(prompt (shell-command-make-prompt-string
+ 		 format-string current-directory)))
+     (set-keymap-parent keymap (or user-keymap minibuffer-local-map))

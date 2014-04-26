@@ -1,0 +1,111 @@
+set gui=none,tabs
+set complete=sl
+" set hintmatching=custom
+set ic
+set focuscontent
+set! ui.caretWidth=12
+
+set nextpattern=\bnext\b,\bmore\b,next,^次(の)?ページ,\b次.*,→\b,^>$,^(>>|≫)$,^(>|≫),(>|≫)$
+set previouspattern=\bprev|previous\b,prev,^前(の)?ページ,\b前.*,\b←,^<
+
+" qmark 1 http://www.hongfire.com/forum/forumdisplay.php?f=161
+" qmark 2 http://www.hongfire.com/forum/forumdisplay.php?f=157
+" qmark 3 http://www.akiba-online.com/forum/main.php?page=jav2
+" qmark 4 http://www.akiba-online.com/forum/main.php?page=hentai2
+" qmark 5 http://www.akiba-online.com/forum/main.php?page=jav
+" qmark a http://www.alabout.com/list.php?sid=3
+" qmark e http://blog.livedoor.jp/samplems-bakufu/archives/51146628.html
+" qmark G http://blog.livedoor.jp/fffsyuukatu-tooa/archives/2225233.html
+" qmark g https://mail.google.com/mail/?shva=1#inbox
+" qmark j http://jyouhouya3.net/news2011/
+" qmark M http://masuda.liblo.jp/archives/51608615.html
+" qmark N http://newdiscovery.blog116.fc2.com/blog-entry-547.html
+" qmark n http://nukeruga.blog31.fc2.com/blog-entry-480.html
+" qmark o http://www.youtube.com/user/56supergururin
+" qmark t http://wwwz.tss-tv.co.jp/tatsukawa_blog/
+" qmark v http://blog.livedoor.jp/news23vip/
+
+qmark b http://zengin.ajtw.net/
+qmark p http://www.post.japanpost.jp/zipcode/
+qmark y https://wwws.jp-bank.japanpost.jp/cgi-bin/kouza.cgi
+qmark h http://kouseikyoku.mhlw.go.jp/kinki/gyomu/bu_ka/kyoto/index.html
+qmark c http://www.yakka.jp/IryokikanCodesearch_form.html
+" set hintchars="fjklasdhguionmerwc"
+" set editor="emacsclient"
+
+noremap ! :set invusermode<CR> 
+noremap J :panorama 1switch<CR>
+noremap K :panorama 1switch<CR>
+noremap B b
+noremap b ;b
+noremap H <A-Left>
+noremap L <A-Right>
+"" .vimperatorrcを再読み込み 
+map ,s :so ~/.vimperatorrc<CR>
+map ,t :tabduplicate<CR>
+map ,v :viewsource<CR>
+map ,d :tabopen<CR>:downloads<CR>
+map ,a :tabopen<CR>:addons<CR>
+map ,g y<Esc><Esc>:tabopen <C-v><CR>
+map ,p :panorama 1switch<CR>
+map ,P :panorama 
+map <S-Right> :tabmove! +1<CR>
+map <S-Left> :tabmove! -1<CR>
+" nicovideo
+" map ,ni :nicoinfo<CR>
+" map ,np :nicopause<CR>
+" map ,nm :nicomute<CR>
+" map ,nc :nicommentvisible<CR>
+" map ,nv :nicovolume
+" map ,nz :nicosize
+" map ,ns :nicoseek
+" youtube
+" map ,yi :ytinfo<CR>
+" map ,yp :ytpause<CR>
+" map ,ym :ytmute<CR>
+" map ,ys :ytseek 
+" map ,y! :ytseek! 
+" map ,yv :ytvolume 
+
+" orscheme darkness
+" le -name tab-style-fix chrome://* <<EOM
+" b-text-shadow,
+" bs-newtab-button {
+" isplay: none !important;
+" 
+" 
+
+javascript <<EOM
+[
+    ['scrapbook', 'ScrapBook', 'chrome://scrapbook/content/scrapbook.xul', 'resizable,width=300,height=700'],
+].forEach(function([name, description, uri, args]) config.dialogs.push([name, description, function() openDialog(uri, "_blank", args)]));
+EOM
+
+" " start MozRepl
+" js <<EOF
+"   if ('@hyperstruct.net/mozlab/mozrepl;1' in Components.classes)
+"   {
+"       Components
+"           .classes['@hyperstruct.net/mozlab/mozrepl;1']
+"           .getService(Components.interfaces.nsIMozRepl)
+"           .start(4242);
+"   }
+" EOF
+
+javascript <<EOM
+liberator.modules.commands.addUserCommand(
+	['ych14'],
+	'ゆうちょ銀行の振込口座を検索',
+	function([kg, bg]) {
+	    liberator.open('https://wwws.jp-bank.japanpost.jp/cgi-bin/kouza.cgi');
+	    liberator.sleep(2000);
+	    let win = document.commandDispatcher.focusedWindow;
+	    let d = win.document;
+	    let xpath = '//input[@type="text" or @type="password" or @type="search" or not(@type)] | //textarea';
+	    let list = d.evaluate(xpath, d, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+	    var fcs = document.commandDispatcher.focusedElement;
+	    liberator.echo(liberator.windows[0]);
+	},
+        {}
+);
+EOM

@@ -1,0 +1,21 @@
+;; -*- mode:lisp -*-
+(load "f:/SBCL1.1.4/ASDF/build/asdf.lisp")
+(require :asdf)
+
+(load "f:/sbcl1.1.4/quicklisp.lisp")
+(load "f:/home/quicklisp/setup.lisp")
+
+(setf sb-impl::*default-external-format* :utf-8)
+(setf sb-alien::*default-c-string-external-format* :utf-8)
+
+(defparameter asdf:*central-registry*
+  (list #P"f:/home/.sbcl/systems/"
+	#P"f:/util/"
+	#P"f:/util2/"
+	#P"f:/ksys/"))
+
+(ql:quickload :cl-ppcre)
+(ql:quickload :local-time)
+(ql:quickload :alexandria)
+(ql:quickload :util)
+(ql:quickload :kensin)

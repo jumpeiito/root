@@ -1,0 +1,122 @@
+;; -*- mode:lisp -*-
+;; (pushnew "f:/home/.sbcl/systems/" asdf:*central-registry* :test #'equal)
+(load "f:/SBCL1.1.4/ASDF/build/asdf.lisp")
+(require :asdf)
+;; (in-package :asdf)
+
+;; (defvar *win-central-registry*
+;;   `((,(user-homedir-pathname) ".sbcl/site/")
+;;     (,(sb-ext:posix-getenv "SBCL_HOME") "site/")))
+
+;; (defun win-sysdef-search (system)
+;;   (dolist (dir *win-central-registry*)
+;;     (let ((files (directory
+;;                   (merge-pathnames
+;;                    (make-pathname :directory '(:relative :wild)
+;;                                   :name (coerce-name system)
+;;                                   :type "asd"
+;;                                   :case :local)
+;;                    (merge-pathnames (cadr dir) (truename (car dir)))))))
+;;       (when files
+;;         (return (car (sort files #'string> :key #'namestring)))))))
+
+;; (pushnew `win-sysdef-search asdf:*system-definition-search-functions*)
+
+ 
+;; (require :asdf-install)
+;; (in-package :asdf-install)
+;; (setq *tar-program* "f:/UnxUtils/usr/local/wbin/tar.exe")
+ 
+;; (labels ((pathstr (win-path)
+;; 	   (cl:concatenate 'string "/c" 
+;; 			   (cl:substitute #\/ #\\ 
+;; 					  (cl:subseq (namestring win-path) 2))))
+;;          (tar (args)
+;;            (with-output-to-string (o)
+;;              (let ((process (sb-ext:run-program *tar-program*
+;;                                                 args
+;;                                                 :search t
+;;                                                 :wait nil
+;;                                                 :output :stream)))
+;;                (prog1 (loop for l = (read-line (process-output process) nil nil)
+;; 			 while l
+;; 			 do (write-line l o))
+;;                  (process-wait process)
+;;                  (process-close process))))))
+  
+;;   (defun get-tar-directory (packagename)
+;;     (let* ((tar (tar (list "-tzf" (pathstr packagename))))
+;;            (first-line (subseq tar 0 (position #\newline tar))))
+;;       (if (find #\/ first-line)
+;;           (subseq first-line 0 (position #\/ first-line))
+;;           first-line)))
+  
+;;   (defun untar-package (source packagename)
+;;     (tar (list "-C" (pathstr source)
+;;                "-xzvf" (pathstr packagename)))))
+
+
+(in-package :cl-user)
+
+(defparameter asdf:*central-registry*
+  (list #P"f:/home/.sbcl/systems/"
+	#P"f:/util/"
+	#P"f:/util2/"
+	#P"f:/ksys/"))
+
+;; (require :local-time)
+;; (require :cl-fad)
+;; (require :alexandria)
+;; (require :cl-ppcre)
+
+(setf sb-impl::*default-external-format* :utf-8)
+(setf sb-alien::*default-c-string-external-format* :utf-8)
+
+;; (defun windows-p () (not (null (ppcre:scan "mswin" (lisp-implementation-version)))))
+;; (defmacro load-with-os (&rest clause)
+;;   (let ((top (if (asdf::os-windows-p) "f:/" "/media/DE13-7421/")))
+;;     `(progn
+;;        ,@(mapcar (lambda (file) `(load ,(format nil "~A~A" top file)))
+;; 		 clause))))
+
+;; (defun load-lib-top-directory ()
+;;   (if (asdf::os-windows-p) "f:/" "/media/DE13-7421/"))
+
+;; (defun load-lib-fasl-or-lisp (string)
+;;   (let ((fasl (format nil "~Autil/~A.fasl" (load-lib-top-directory) string))
+;; 	(lisp (format nil "~Autil/~A.lisp" (load-lib-top-directory) string)))
+;;     (cond
+;;       ((and (cl-fad:file-exists-p fasl)
+;; 	    (cl-fad:file-exists-p lisp))
+;;        (if (> (sb-posix:stat-ctime (sb-posix:stat lisp))
+;; 	      (sb-posix:stat-ctime (sb-posix:stat fasl)))
+;; 	   lisp fasl))
+;;       ((or (cl-fad:file-exists-p fasl)
+;; 	   (cl-fad:file-exists-p lisp))
+;;        (or (cl-fad:file-exists-p fasl)
+;; 	   (cl-fad:file-exists-p lisp)))
+;;       (t (error "Non Existance Error")))))
+
+;; (defparameter *util-library* nil)
+
+;; (defmacro load-lib (&rest clause)
+;;   `(progn
+;;      ,@(mapcar (lambda (file)
+;; 		 (unless (member file *util-library* :test #'equal)
+;; 		   `(progn
+;; 		      (load ,(load-lib-fasl-or-lisp file))
+;; 		      (push ,file *util-library*))))
+;; 	       clause)))
+
+;; (defmacro whichfile (pathname)
+;;   `(or ,@(mapcar
+;; 	  (lambda (parent) `(cl-fad:file-exists-p
+;; 			     ,(make-pathname :defaults (format nil "~A~A" parent pathname))))
+;; 	  '(#P"C:/Users/Jumpei/20130628/"
+;; 	    #P"f:/20130628/"))))
+
+(require :sb-posix)
+(sb-posix:setenv "path"
+		 (format nil "~A;~A"
+			 "f:\\gtk\\bin"
+			 (sb-posix:getenv "path")) 1)

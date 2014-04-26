@@ -1,0 +1,6 @@
+= wget の使い方
+[2007-02-25 19:10]- wget の使い方
+http://www.water.sannet.ne.jp/clean/gvim.doc/vimmain.htmlにある
+txtファイルを回収
+
+wget -r -A .txt -nd http://www.water.sannet.ne.jp/clean/gvim.doc/vimmain.html

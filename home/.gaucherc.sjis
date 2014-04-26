@@ -1,0 +1,454 @@
+;; -*- mode: scheme -*-
+
+(use srfi-1)
+(use srfi-13)
+(use srfi-14)
+(use srfi-19)
+(use util.list)
+(use file.util)
+(use text.tr)
+(use text.csv)
+(use gauche.process)
+(use gauche.charconv)
+
+(define-constant XDOC "f:/d2txt142/xdoc2txt.exe")
+;; (define-constant XDOC "e:/d2txt142/xdoc2txt.exe")
+
+(define (++ . l)
+  (let loop ((subl l) (r ""))
+    (if (null? subl)
+	r
+	(loop (cdr subl) 
+	      (string-append r (if (list? (car subl))
+				   (string-concatenate (map x->string (car subl)))
+				   (x->string (car subl))))))))
+
+(define (vector-null? obj)
+  (and (vector? obj) (= 0 (vector-length obj))))
+
+(define (vector-unique v)
+  (let loop ((subv v) (r '()))
+    (if (vector-null? subv)
+        (list->vector (reverse r))
+        (loop (vector-copy subv 1)
+              (if (member (vector-ref subv 0) r)
+                  r (cons (vector-ref subv 0) r))))))
+
+(define (unique l)
+  (if (vector? l)
+      (vector-unique l)
+      (let loop ((subl l) (r '()))
+        (if (null? subl)
+            (reverse r)
+            (loop (cdr subl) (if (member (car subl) r)
+                                 r (cons (car subl) r)))))))
+
+(define (list-split l num)
+  (let loop ((subl l) (r '()) (subr '()) (n 1))
+    (cond
+     ((null? subl) (reverse (cons (reverse subr) r)))
+     ((= n num) (loop (cdr subl) (cons (reverse (cons (car subl) subr)) r) '() 1))
+     (else (loop (cdr subl) r (cons (car subl) subr) (+ n 1))))))
+
+(define-macro (if-let1 sym cond thenbody . elsebody)
+  `(if ,cond
+       (let1 ,sym ,cond ,thenbody)
+       ,@elsebody))
+
+(define (scan string regexp)
+  (let loop ((subs string) (r '()))
+    (if-let1 rx (rxmatch regexp subs)
+	     (loop (rxmatch-after rx) (cons (rxmatch-substring rx) r))
+	     (reverse r))))
+
+(define (combination l1 l2)
+  (let loop ((subl1 l1) (subl2 l2) (r '()))
+    (cond
+     ((null? subl1)
+      (reverse r))
+     ((null? subl2)
+      (loop (cdr subl1) l2 r))
+     (else
+      (loop subl1 (cdr subl2) (cons `(,(car subl1) ,(car subl2)) r))))))
+
+;; (define (permutation l)
+;;   (cond
+;;    ((= 1 (length l)) '(l))
+;;    ((= 2 (length l)) `((,(first l) ,(second l))
+;; 		       (,(second l) ,(first l))))
+;;    ((< 3 (length l)) 
+;;     (let loop ((subl l) (car ))
+;;       )))))
+
+(define-macro (class cname args . body)
+  `(define-class ,cname ,args
+     ,(map
+	(lambda (ll) (list (car ll)
+			   (make-keyword "init-keyword")
+			   (make-keyword (car ll))
+			   (make-keyword "init-value")
+			   (cadr ll)))
+	body)))
+
+(define-macro (initial cn . body)
+  `(define-method initialize ((self ,cn) initargs)
+     (next-method)
+     (let* ((r  (lambda (sym) (slot-ref self sym)))
+	    (s! (lambda (sym val) (slot-set! self sym val))))
+       ,@body)))
+
+(define (my-make-date year month day hour minute second)
+  (make-date 0 second minute hour day month year 0))
+
+(define english-month-hash
+  (alist->hash-table
+   '(("Jan"		. 1)
+     ("Feb"		. 2)
+     ("Mar"		. 3)
+     ("Apr"		. 4)
+     ("May"		. 5)
+     ("Jun"		. 6)
+     ("Jul"		. 7)
+     ("Aug"		. 8)
+     ("Sep"		. 9)
+     ("Oct"		. 10)
+     ("Nov"		. 11)
+     ("Dec"		. 12)
+     ("January"		. 1)
+     ("February"	. 2)
+     ("March"		. 3)
+     ("April"		. 4)
+     ("May"		. 5)
+     ("June"		. 6)
+     ("July"		. 7)
+     ("August"		. 8)
+     ("September"	. 9)
+     ("October"		. 10)
+     ("November"	. 11)
+     ("December"	. 12))
+   'equal?))
+
+(define (english-month mon)
+  (hash-table-get english-month-hash mon 1))
+
+
+;; Sat Jun 2 00:00:00 UTC+0900 2012
+(define (string->date str)
+  (let* ((r   (lambda (s) (s str)))
+	 (sn  (lambda (s) (string->number s)))
+	 (mmd (lambda (y m d) (my-make-date y m d 0 0 0)))
+	 (sd-core (lambda (gen year)
+		    (+ year
+		       (cdar
+			(filter
+			 (lambda (ll) (member gen (car ll)))
+			 '((("m" "M" "–¾" "–¾Ž¡") . 1867)
+			   (("t" "T" "‘å" "‘å³") . 1911)
+			   (("s" "S" "º" "º˜a") . 1925)
+			   (("h" "H" "•½" "•½¬") . 1988))))))))
+    (rxmatch-cond
+     ((rxmatch #/(\d{4})[\-\/\.”N]\W*(\d{1,2})[\-\/\.ŒŽ]\W*(\d{1,2})“ú*/ str)
+      (#f yyyy mm dd) (mmd (sn yyyy) (sn mm) (sn dd)))
+     ((rxmatch #/([mMtTsShH–¾‘åº•½])(\d{1,2})[\.-]\W*(\d{1,2})[\.-]\W*(\d{1,2})/ str)
+      (#f g yy mm dd) (mmd (sd-core g (sn yy)) (sn mm) (sn dd)))
+     ((rxmatch #/(\d{4})(\d{2})(\d{2})/ str)
+      (#f yyyy mm dd) (mmd (sn yyyy) (sn mm) (sn dd)))
+     ((rxmatch #/([–¾‘åº•½].)([0-9]{1,2})”N\W*([0-9]{1,2})ŒŽ\W*([0-9]{1,2})“ú/ str)
+      (#f g yy mm dd) (mmd (sd-core g (sn yy)) (sn mm) (sn dd)))
+     ((rxmatch #/[A-Z][a-z]+ ([A-Z][a-z]+) ([0-9]+) 00:00:00 ........ ([0-9]+)/ str)
+      (#f mm dd yyyy) (mmd (sn yyyy) (english-month mm) (sn dd)))
+     (else #f))))
+
+(define (file->csv filename . sep)
+  (let ((s (if (null? sep) #\, (car sep))))
+   (call-with-input-file filename
+     (lambda (in)
+       (port->list (make-csv-reader s) in)))))
+
+(define (file->csv-utf filename . sep)
+  (let ((s (if (null? sep) #\, (car sep))))
+   (call-with-input-file filename
+     (lambda (in)
+       (port->list (make-csv-reader s)
+                   (open-input-conversion-port in "*jp" :to-code "UTF-8"))))))
+
+(define (cell l xx yy)
+  (list-ref (list-ref l (- yy 1)) (- xx 1)))
+
+(define (ht-get hashtable key)
+  (if (hash-table-exists? hashtable key)
+      (hash-table-get hashtable key)
+      #f))
+
+(define (how-old birthday basetime)
+  (let* ((converter (lambda (s)
+                      (cond
+                       ((date? s) s)
+                       ((string? s) (string->date s))
+                       ((number? s) (& string->date x->string : s))
+                       (else (error "inappropriate argument")))))
+         (bi     (converter birthday))
+         (ba     (converter basetime))
+         (biyear (date-year bi))
+	 (bidate (+ (* 100 (date-month bi))
+		    (date-day bi)))
+	 (bayear (date-year ba))
+	 (badate (+ (* 100 (date-month ba))
+		    (date-day ba))))
+    (- bayear biyear (if (>= badate bidate) 0 1))))
+
+
+(define split-string string-split)
+
+(define (sjis->utf inport) (open-input-conversion-port inport "*jp" :to-code "UTF-8"))
+
+(define-macro (profile . body)
+  `(begin
+     (profiler-reset)
+     (profiler-start)
+     ,@body
+     (profiler-stop)
+     (profiler-show)))
+
+(define (list-join ll)
+  (let loop ((subl ll) (r '()))
+    (cond
+     ((null? subl)
+      r)
+     ((not (pair? (car subl)))
+      (loop (cdr subl) (append r (list (car subl)))))
+     ((pair? (car subl))
+      (loop (cdr subl) (append r (car subl)))))))
+
+(define (date-compare sym d1 d2) 
+  (if (and d1 d2)
+      (sym (date->julian-day d1) (date->julian-day d2))
+      #f))
+(define (date>?  d1 d2) (date-compare >  d1 d2))
+(define (date<?  d1 d2) (date-compare <  d1 d2))
+(define (date>=? d1 d2) (date-compare >= d1 d2))
+(define (date<=? d1 d2) (date-compare <= d1 d2))
+
+(define (read-file filename)
+  (call-with-input-file filename 
+    (lambda (in)
+      (let1 fin (identity in)
+	(let loop ((c (read-char fin)) (r '()))
+	  (if (eof-object? c)
+	      r
+	      (loop (++ r c) (read-char fin))))))))
+
+(define (read-file-line filename)
+  (string-split (list->string (read-file filename)) "\n"))
+
+(define (pairize l)
+  (if (odd? (length l))
+      (error "list must be even.")
+      (let loop ((subl l) (r '()))
+	(if (null? subl)
+	    (reverse r)
+	    (loop (drop subl 2) (cons (take subl 2) r))))))
+
+(define (dotted-pairize l)
+  (if (odd? (length l))
+      (error "list must be even.")
+      (let loop ((subl l) (r '()))
+	(if (null? subl)
+	    (reverse r)
+	    (loop (drop subl 2) (cons (let1 ll (take subl 2) (cons (first ll) (second ll))) r))))))
+
+(define-macro (method methodname lyst . body)
+  (let* ((classname  (first lyst))
+	 (arglist    (drop lyst 1)))
+    `(define-method ,methodname ,(cons `(self ,classname) arglist)
+       (let* ((r  (lambda (sym) (slot-ref self sym)))
+	      (s! (lambda (sym val) (slot-set! self sym val))))
+	 (next-method)
+	 ,@body))))
+
+;((compose list apply) + 2 3))
+;(& list apply : + '(2 3))
+(define (index obj l)
+  (let loop ((subl l) (c 0))
+    (cond
+     ([null? subl] #f)
+     ([equal? obj (car subl)] c)
+     (else (loop (cdr subl) (inc! c))))))
+
+(define-macro (& . args)
+  (let ((func ((compose reverse cdr member) ': (reverse args)))
+        (a    (cdr (member ': args))))
+    `((compose ,@func) ,@a)))
+
+;; ((lambda (x) (+ x (* x x))) 4)
+;; (^ x : (+ x (* x x)) 4)
+(define-macro (^ . args)
+  (let1 i (index ': args)
+    (receive (val body) (split-at args i)
+      `(lambda ,val ,@(cdr body)))))
+
+(define (split-at-no-include l sym)
+  (let loop ((subl l) (small '()) (r '()))
+    (cond
+     ([null? subl] (reverse (cons (reverse small) r)))
+     ([equal? sym (car subl)]
+      (loop (cdr subl) '() (cons (reverse small) r)))
+     (else
+      (loop (cdr subl) (cons (car subl) small) r)))))
+
+(define-macro (map* . args)
+  (let1 l (split-at-no-include args ':)
+    `(map (lambda ,(car l) ,@(second l)) ,@(third l))))
+
+(define (file-read-head filename n)
+  (call-with-input-file filename
+    (lambda (fin)
+      (let1 in (sjis->utf fin)
+        (let loop ((c (read-char in)) (counter 0) (r '()))
+          (cond
+           ([eof-object? c]      (reverse r))
+           ([equal? counter n]   (reverse r))
+           ([char=? #\newline c] (loop (read-char in) (inc! counter) (cons c r)))
+           (else                 (loop (read-char in) counter (cons c r)))))))))
+
+(define (file-read-nthlist filename nthlist)
+  (call-with-input-file filename
+    (lambda (fin)
+      (let1 in (sjis->utf fin)
+        (let loop ((c (read-char in)) (counter 1) (r '()))
+          (cond
+           ([eof-object? c]      (reverse r))
+           ([member counter nthlist]
+            (loop (read-char in) ((if (char=? #\newline c) inc! identity) counter) (cons c r)))
+           ([char=? #\newline c] (loop (read-char in) (inc! counter) r))
+           (else                 (loop (read-char in) counter r))))))))
+
+(define (.. st en)
+  (iota (+ (- en st) 1) st))
+
+(define h (make-hash-table 'equal?))
+
+(define (hash-specialize . alist)
+  (dolist (i alist)
+    (if (pair? (car i))
+	(for-each (lambda (x y) (hash-table-put! h x y))
+		  (map integer->char (car i))
+		  (map integer->char (cdr i)))
+	(hash-table-put! h (car i) (cdr i)))))
+
+(hash-specialize `(,(.. 48 57)  . ,(.. 49 58))
+		 `(,(.. 65 89)  . ,(.. 66 90))
+		 `(,(.. 97 121) . ,(.. 98 122))
+		 `(#\9           . #\0)
+		 `(#\z           . #\a)
+		 `(#\Z           . #\A))
+
+(define (string-inc! str)
+  (let loop ([subl (& reverse string->list : str)] [flag #t] [r '()])
+    (cond
+     ([null? subl] (list->string r))
+     (flag
+      (loop (cdr subl) [char-set-contains? #[9zZ] (car subl)]
+	    (cons (hash-table-get h (car subl)) r)))
+     ((and [char-set-contains? #[9zZ] (car subl)] flag)
+      (loop (cdr subl) #t (cons (hash-table-get h (car subl)) r)))
+     (else
+      (loop (cdr subl) #f (cons (car subl) r))))))
+
+(cond-expand
+ (gauche.os.windows
+  (define root-dir "f:/"))
+ (else
+  (define root-dir "/media/DE13-7421/")))
+
+(define (file-expand str) (++ root-dir str))
+
+(define (xdoc filename)
+  (process-output->string-list #`"f:/d2txt142/xdoc2txt.exe \",filename\""))
+
+(define (hash-table-update! ht key val)
+  (hash-table-put! ht key
+		   (if-let1 v (hash-table-get ht key #f)
+		     (cons val v) (list val))))
+
+(define (%dir dir reg)
+  (directory-list dir
+		  :add-path? #t
+		  :children? #t
+		  :filter (cut rxmatch reg <>)))
+
+(define-macro (dlambda arglist . clause)
+  `(lambda ,(cons 'key (car arglist))
+     (case key
+       ,@(map
+	  (lambda (xl)
+	    `(,(list (car xl)) ,@(cdr xl)))
+	  clause))))
+(define (group l num)
+  (let loop ((subl l) (counter 1) (small '()) (r '()))
+    (if (null? subl)
+	(if (null? small)
+	    (reverse r)
+	    (reverse (cons (reverse small) r)))
+	(loop (cdr subl) (+ 1 counter)
+	      (if (= 0 (modulo counter num))
+		  '() (cons (car subl) small))
+	      (if (= 0 (modulo counter num))
+		  (cons (reverse (cons (car subl) small)) r) r)))))
+
+(define (kgbg str)
+  (let1 a (alist->hash-table
+	   '(("10" . "–k") ("11" . "ã") ("12" . "’†") ("13" . "‰º") ("14" . "“ì") ("15" . "¶")
+	    ("16" . "“Œ") ("17" . "ŽR") ("18" . "‰E") ("19" . "¼") ("20" . "•š") ("21" . "‘ç")
+	    ("50" . "‰³") ("51" . "‰F") ("53" . "‹T") ("54" . "‘D") ("56" . "ˆ»")
+	    ("57" . "•Ÿ") ("58" . "•‘") ("59" . "‹{") ("60" . "‰œ") ("61" . "‘Š") ("62" . "—Œ")
+	    ("63" . "’Ô") ("85" . "–@") ("90" . "•\") ("95" . "“d"))
+	   'string=?)
+    (let1 s1 (substring str 2 4)
+      (if-let1 shibu (hash-table-get a s1 #f)
+	(++ "Œš14" shibu s1 "-" (substring str 4 9))
+	#f))))
+
+(define (nendo-year d)
+  (let1 dis ((if (date? d) identity string->date) d)
+    (- (date-year dis)
+       (if (> (date-month dis) 3)
+	   0 1))))
+
+(define hospital-hash
+  (alist->hash-table
+   '(("2610903946" . "é“ìf—ÃŠ") ("2610803013" . "“ŒŽRf—ÃŠ")
+     ("2614102230" . "‘å‘îf—ÃŠ") ("2610201358" . "ã‹ž•a‰@")
+     ("2613000625" . "V‰Í’[•a‰@") ("2610403590" . "¼Žµðf—ÃŠ")
+     ("2610500916" . "‹gË‰@•a‰@") ("2620700092" . "‹ž“s•{Œð’Ê˜J“­“™ÐŠQ‹~ÏŽ–‹Æ’c")
+     ("2610601342" . "‘æ“ñ’†‰›•a‰@") ("2610406569" . "¼Žµðf—ÃŠ")
+     ("2610606093" . "—Œ–kf—ÃŠ") ("2613300108" . "‚½‚ñ‚²‹¦—§f—ÃŠ")
+     ("2610307411" . "‘¾Žq“¹f—ÃŠ") ("2611801123" . "‹ž“s‹¦—§•a‰@")
+     ("2612701488" . "‚Ü‚¢‚Ã‚é‹¦—§f—ÃŠ") ("2611202348" . "‚ ‚³‚­‚çf—ÃŠ")
+     ("2613100656" . "ˆã½‰ïf—ÃŠ") ("2614101075" . "—Œ˜a‰ï‰¹‰H•a‰@")
+     ("2610204741" . "ã‹žf—ÃŠ") ("2610604080" . "ì’[f—ÃŠ")
+     ("2613344"    . "—Œ–kf—ÃŠ")
+     ("0002613344" . "—Œ–kf—ÃŠ"))
+   'equal?))
+
+(define (date->normal-string date)
+  (format #f "~A/~2'0d/~2'0d"
+	  (date-year date)
+	  (date-month date)
+	  (date-day date)))
+
+(define-macro (aif test then-body . else-body)
+  `(let ((it ,test))
+     (if it ,then-body ,@else-body)))
+
+(define (push-hash-table keyfn valfn l type)
+  (let1 h (make-hash-table type)
+    (dolist (i l)
+      (hash-table-put!
+       h
+       (keyfn i)
+       (aif (hash-table-get h (keyfn i) #f)
+	    (cons (valfn i) it)
+	    (list (valfn i)))))
+    h))
+

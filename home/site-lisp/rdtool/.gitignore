@@ -1,0 +1,6 @@
+Gemfile.lock
+# jeweler generated
+pkg
+# html files
+*.html
+doc/*.html

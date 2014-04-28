@@ -1,0 +1,8 @@
+/var/log/syslog
+/var/log/#syslog#
+/home/jumpei/.emacs.d/.emacs.anything.el
+/home/jumpei/.emacs.d/#.emacs.anything.el#
+/home/jumpei/.emacs.my.el
+/home/jumpei/#.emacs.my.el#
+/home/jumpei/Program/Scheme/gettv.scm
+/home/jumpei/Program/Scheme/#gettv.scm#

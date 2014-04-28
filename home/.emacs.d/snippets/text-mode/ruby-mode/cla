@@ -1,0 +1,8 @@
+#name : class << self ... end
+#group : definitions
+# --
+class ${self}
+  def initialize
+    $0
+  end
+end

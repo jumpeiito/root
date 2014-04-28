@@ -1,0 +1,2117 @@
+
+helm-adaptative.el,600
+(defgroup helm-adapt 27,931
+(defcustom helm-adaptive-history-file31,1020
+(defcustom helm-adaptive-history-length 37,1188
+(defvar helm-adaptive-done 44,1338
+(defvar helm-adaptive-history 48,1447
+(defun helm-adaptative-done-reset 52,1611
+(define-minor-mode helm-adaptative-mode55,1682
+(defun helm-adapt-use-adaptative-p 78,2801
+(defun helm-adaptive-store-selection 94,3803
+(defun helm-adaptative-maybe-load-history 149,6942
+(defun helm-adaptive-save-history 155,7222
+(defun helm-adaptive-sort 168,7724
+(defun helm-reset-adaptative-history 220,10512
+(defun helm-adaptive-compare 228,10846
+
+helm-aliases.el,33267
+(defun helm-alias-p 26,944
+(defun helm-check-conflicting-prefixes 33,1125
+(defun helm-collect-functions-with-bad-prefix 40,1479
+(defun helm-collect-vars-with-bad-prefix 46,1701
+(defun helm-insert-fn-aliases 52,1917
+(defun helm-insert-var-aliases 57,2184
+(defalias 'helm-c-etags-default-action helm-c-etags-default-action66,2515
+(defalias 'helm-c-simple-call-tree-candidates helm-c-simple-call-tree-candidates68,2662
+(defalias 'helm-c-show-info-in-mode-line helm-c-show-info-in-mode-line70,2837
+(defalias 'helm-c-gentoo-eshell-action helm-c-gentoo-eshell-action72,2992
+(defalias 'helm-c-grep-highlight-match helm-c-grep-highlight-match74,3139
+(defalias 'helm-c-apropos helm-c-apropos76,3286
+(defalias 'helm-c-grep-guess-extensions helm-c-grep-guess-extensions78,3381
+(defalias 'helm-c-highlight-w3m-bookmarks helm-c-highlight-w3m-bookmarks80,3532
+(defalias 'helm-c-emms-files-modifier helm-c-emms-files-modifier82,3691
+(defalias 'helm-c-apt-reinstall helm-c-apt-reinstall84,3834
+(defalias 'helm-c-bbdb-compose-mail helm-c-bbdb-compose-mail86,3953
+(defalias 'helm-c-gentoo-init-list helm-c-gentoo-init-list88,4088
+(defalias 'helm-c-gentoo-get-world helm-c-gentoo-get-world90,4219
+(defalias 'helm-c-reset-adaptative-history helm-c-reset-adaptative-history92,4350
+(defalias 'helm-c-highlight-bookmark helm-c-highlight-bookmark94,4513
+(defalias 'helm-c-locate-init helm-c-locate-init96,4652
+(defalias 'helm-c-delete-file helm-c-delete-file98,4763
+(defalias 'helm-c-regexp-persistent-action helm-c-regexp-persistent-action100,4874
+(defalias 'helm-c-grep-split-line helm-c-grep-split-line102,5037
+(defalias 'helm-c-filtered-candidate-transformer-file-line-1 helm-c-filtered-candidate-transformer-file-line-1104,5164
+(defalias 'helm-c-info-display-to-real helm-c-info-display-to-real106,5399
+(defalias 'helm-c-symbolify helm-c-symbolify108,5546
+(defalias 'helm-c-zgrep-buffers helm-c-zgrep-buffers110,5649
+(defalias 'helm-c-apt-persistent-action helm-c-apt-persistent-action112,5768
+(defalias 'helm-c-pdfgrep-init helm-c-pdfgrep-init114,5919
+(defalias 'helm-c-walk-directory helm-c-walk-directory116,6034
+(defalias 'helm-c-grep-init helm-c-grep-init118,6157
+(defalias 'helm-c-ucs-forward-char helm-c-ucs-forward-char120,6260
+(defalias 'helm-c-complete-file-name-at-point helm-c-complete-file-name-at-point122,6391
+(defalias 'helm-c-timer-real-to-display helm-c-timer-real-to-display124,6566
+(defalias 'helm-c-ucs-init helm-c-ucs-init126,6717
+(defalias 'helm-c-bookmark-run-delete helm-c-bookmark-run-delete128,6816
+(defalias 'helm-c-uniq-list helm-c-uniq-list130,6959
+(defalias 'helm-c-pp-bookmarks helm-c-pp-bookmarks132,7062
+(defalias 'helm-c-gentoo-get-url helm-c-gentoo-get-url134,7177
+(defalias 'helm-c-top-sh-persistent-action helm-c-top-sh-persistent-action136,7300
+(defalias 'helm-c-gentoo-get-use helm-c-gentoo-get-use138,7463
+(defalias 'helm-c-grep-action helm-c-grep-action140,7586
+(defalias 'helm-c-file-buffers helm-c-file-buffers142,7697
+(defalias 'helm-c-google-suggest-fetch helm-c-google-suggest-fetch144,7812
+(defalias 'helm-c-arrange-type-attribute helm-c-arrange-type-attribute146,7959
+(defalias 'helm-c-bookmark-w3m-setup-alist helm-c-bookmark-w3m-setup-alist148,8114
+(defalias 'helm-c-yahoo-suggest-action helm-c-yahoo-suggest-action150,8277
+(defalias 'helm-c-buffer-query-replace-1 helm-c-buffer-query-replace-1152,8424
+(defalias 'helm-c-make-info-source helm-c-make-info-source154,8579
+(defalias 'helm-c-open-dired helm-c-open-dired156,8710
+(defalias 'helm-c-w3m-bookmarks-get-value helm-c-w3m-bookmarks-get-value158,8817
+(defalias 'helm-c-kill-ring-transformer helm-c-kill-ring-transformer160,8976
+(defalias 'helm-c-etags-init helm-c-etags-init162,9127
+(defalias 'helm-c-w3m-rename-bookmark helm-c-w3m-rename-bookmark164,9234
+(defalias 'helm-c-advice-update-current-display-string helm-c-advice-update-current-display-string166,9377
+(defalias 'helm-c-regexp-get-line helm-c-regexp-get-line168,9588
+(defalias 'helm-c-grep-run-other-window-action helm-c-grep-run-other-window-action170,9715
+(defalias 'helm-c-regexp-kill-new helm-c-regexp-kill-new172,9894
+(defalias 'helm-c-goto-line-with-adjustment helm-c-goto-line-with-adjustment174,10021
+(defalias 'helm-c-grep-run-default-action helm-c-grep-run-default-action176,10188
+(defalias 'helm-c-define-info-index-sources helm-c-define-info-index-sources178,10347
+(defalias 'helm-c-transform-file-browse-url helm-c-transform-file-browse-url180,10514
+(defalias 'helm-c-shell-command-if-needed helm-c-shell-command-if-needed182,10681
+(defalias 'helm-c-kill-regexp-as-sexp helm-c-kill-regexp-as-sexp184,10840
+(defalias 'helm-c-goto-next-or-prec-file helm-c-goto-next-or-prec-file186,10983
+(defalias 'helm-c-simple-call-tree-functions-callers-init helm-c-simple-call-tree-functions-callers-init188,11138
+(defalias 'helm-c-insert-file-name-completion-at-point helm-c-insert-file-name-completion-at-point190,11361
+(defalias 'helm-c-point-file-in-dired helm-c-point-file-in-dired192,11572
+(defalias 'helm-c-action-file-line-goto helm-c-action-file-line-goto194,11715
+(defalias 'helm-c-info-goto helm-c-info-goto196,11866
+(defalias 'helm-c-apt-install helm-c-apt-install198,11969
+(defalias 'helm-c-skip-boring-buffers helm-c-skip-boring-buffers200,12080
+(defalias 'helm-c-register-candidates helm-c-register-candidates202,12223
+(defalias 'helm-c-find-function helm-c-find-function204,12366
+(defalias 'helm-c-simple-call-tree-find-definition helm-c-simple-call-tree-find-definition206,12485
+(defalias 'helm-c-apt-display-to-real helm-c-apt-display-to-real208,12680
+(defalias 'helm-c-yaoddmuse-action-transformer helm-c-yaoddmuse-action-transformer210,12823
+(defalias 'helm-c-org-keywords-init helm-c-org-keywords-init212,13002
+(defalias 'helm-c-xrandr-screen helm-c-xrandr-screen214,13137
+(defalias 'helm-c-simple-call-tree-persistent-action helm-c-simple-call-tree-persistent-action216,13256
+(defalias 'helm-c-position helm-c-position218,13459
+(defalias 'helm-c-imenu-candidates helm-c-imenu-candidates220,13558
+(defalias 'helm-c-bbdb-candidates helm-c-bbdb-candidates222,13689
+(defalias 'helm-c-ucs-persistent-forward helm-c-ucs-persistent-forward224,13816
+(defalias 'helm-c-basename helm-c-basename226,13971
+(defalias 'helm-c-files-in-all-dired-candidates helm-c-files-in-all-dired-candidates228,14070
+(defalias 'helm-c-action-line-goto helm-c-action-line-goto230,14253
+(defalias 'helm-c-grep-other-window helm-c-grep-other-window232,14384
+(defalias 'helm-c-yahoo-suggest-fetch helm-c-yahoo-suggest-fetch234,14519
+(defalias 'helm-c-external-commands-list-1 helm-c-external-commands-list-1236,14662
+(defalias 'helm-c-buffers-list-persistent-action helm-c-buffers-list-persistent-action238,14825
+(defalias 'helm-c-show-completion-init-overlay helm-c-show-completion-init-overlay240,15012
+(defalias 'helm-c-shadow-boring-files helm-c-shadow-boring-files242,15191
+(defalias 'helm-c-bookmark-local-files-setup-alist helm-c-bookmark-local-files-setup-alist244,15334
+(defalias 'helm-c-highlight-local-use helm-c-highlight-local-use246,15529
+(defalias 'helm-c-w3m-delete-bookmark helm-c-w3m-delete-bookmark248,15672
+(defalias 'helm-c-skip-current-file helm-c-skip-current-file250,15815
+(defalias 'helm-c-goto-next-file helm-c-goto-next-file252,15950
+(defalias 'helm-c-info-init helm-c-info-init254,16073
+(defalias 'helm-c-query-replace-args helm-c-query-replace-args256,16176
+(defalias 'helm-c-bookmark-info-setup-alist helm-c-bookmark-info-setup-alist258,16315
+(defalias 'helm-c-ratpoison-commands-execute helm-c-ratpoison-commands-execute260,16482
+(defalias 'helm-c-ucs-persistent-backward helm-c-ucs-persistent-backward262,16653
+(defalias 'helm-c-info-pages-init helm-c-info-pages-init264,16812
+(defalias 'helm-c-grep-save-results helm-c-grep-save-results266,16939
+(defalias 'helm-c-simple-call-tree-callers-functions-init helm-c-simple-call-tree-callers-functions-init268,17074
+(defalias 'helm-c-read-file-name helm-c-read-file-name270,17297
+(defalias 'helm-c-org-keywords-insert helm-c-org-keywords-insert272,17420
+(defalias 'helm-c-call-interactively helm-c-call-interactively274,17563
+(defalias 'helm-c-adaptive-compare helm-c-adaptive-compare276,17702
+(defalias 'helm-c-filtered-candidate-transformer-file-line helm-c-filtered-candidate-transformer-file-line278,17833
+(defalias 'helm-c-buffer-list helm-c-buffer-list280,18060
+(defalias 'helm-c-gentoo-get-local-use helm-c-gentoo-get-local-use282,18171
+(defalias 'helm-c-thing-before-point helm-c-thing-before-point284,18318
+(defalias 'helm-c-ratpoison-commands-display-to-real helm-c-ratpoison-commands-display-to-real286,18457
+(defalias 'helm-c-imenu-default-action helm-c-imenu-default-action288,18660
+(defalias 'helm-c-describe-function helm-c-describe-function290,18807
+(defalias 'helm-c-colors-get-name helm-c-colors-get-name292,18942
+(defalias 'helm-c-bookmark-help helm-c-bookmark-help294,19069
+(defalias 'helm-c-ucs-persistent-delete helm-c-ucs-persistent-delete296,19188
+(defalias 'helm-c-set-variable helm-c-set-variable298,19339
+(defalias 'helm-c-w3m-browse-bookmark helm-c-w3m-browse-bookmark300,19454
+(defalias 'helm-c-grep-save-results-1 helm-c-grep-save-results-1302,19597
+(defalias 'helm-c-adaptative-maybe-load-history helm-c-adaptative-maybe-load-history304,19740
+(defalias 'helm-c-w32-pathname-transformer helm-c-w32-pathname-transformer306,19923
+(defalias 'helm-c-top-display-to-real helm-c-top-display-to-real308,20086
+(defalias 'helm-c-open-file-externally helm-c-open-file-externally310,20229
+(defalias 'helm-c-colors-get-rgb helm-c-colors-get-rgb312,20376
+(defalias 'helm-c-org-headline-refile helm-c-org-headline-refile314,20499
+(defalias 'helm-c-stumpwm-commands-init helm-c-stumpwm-commands-init316,20642
+(defalias 'helm-c-highlight-world helm-c-highlight-world318,20793
+(defalias 'helm-c-top-sh helm-c-top-sh320,20920
+(defalias 'helm-c-bbdb-get-record helm-c-bbdb-get-record322,21011
+(defalias 'helm-c-persistent-xfont-action helm-c-persistent-xfont-action324,21138
+(defalias 'helm-c-latex-math-candidates helm-c-latex-math-candidates326,21297
+(defalias 'helm-c-ucs-backward-char helm-c-ucs-backward-char328,21448
+(defalias 'helm-c-calculate-ucs-max-len helm-c-calculate-ucs-max-len330,21583
+(defalias 'helm-c-etags-mtime helm-c-etags-mtime332,21734
+(defalias 'helm-c-google-suggest-action helm-c-google-suggest-action334,21845
+(defalias 'helm-c-org-headline-insert-link-to-headline helm-c-org-headline-insert-link-to-headline336,21996
+(defalias 'helm-c-bbdb-create-contact helm-c-bbdb-create-contact338,22207
+(defalias 'helm-c-elisp-library-scan-init helm-c-elisp-library-scan-init340,22350
+(defalias 'helm-c-apt-refresh helm-c-apt-refresh342,22509
+(defalias 'helm-c-kill-regexp helm-c-kill-regexp344,22620
+(defalias 'helm-c-gentoo-default-action helm-c-gentoo-default-action346,22731
+(defalias 'helm-c-grep-buffers-1 helm-c-grep-buffers-1348,22882
+(defalias 'helm-c-adaptive-store-selection helm-c-adaptive-store-selection350,23005
+(defalias 'helm-c-browse-url helm-c-browse-url352,23168
+(defalias 'helm-c-google-suggest-emacs-lisp helm-c-google-suggest-emacs-lisp354,23275
+(defalias 'helm-c-ucs-persistent-insert helm-c-ucs-persistent-insert356,23442
+(defalias 'helm-c-xrandr-output helm-c-xrandr-output358,23593
+(defalias 'helm-c-kill-ring-action helm-c-kill-ring-action360,23712
+(defalias 'helm-c-org-keywords-candidates helm-c-org-keywords-candidates362,23843
+(defalias 'helm-c-bookmark-jump helm-c-bookmark-jump364,24002
+(defalias 'helm-c-shadow-boring-buffers helm-c-shadow-boring-buffers366,24121
+(defalias 'helm-c-buffer-match-major-mode helm-c-buffer-match-major-mode368,24272
+(defalias 'helm-c-highlight-bookmark-su helm-c-highlight-bookmark-su370,24431
+(defalias 'helm-c-grep-other-frame helm-c-grep-other-frame372,24582
+(defalias 'helm-c-jabber-online-contacts helm-c-jabber-online-contacts374,24713
+(defalias 'helm-c-apt-purge helm-c-apt-purge376,24868
+(defalias 'helm-c-adaptive-sort helm-c-adaptive-sort378,24971
+(defalias 'helm-c-bmkext-addressbook-setup-alist helm-c-bmkext-addressbook-setup-alist380,25090
+(defalias 'helm-c-bbdb-collect-mail-addresses helm-c-bbdb-collect-mail-addresses382,25277
+(defalias 'helm-c-bmkext-filter-setup-alist helm-c-bmkext-filter-setup-alist384,25452
+(defalias 'helm-c-grep-buffers helm-c-grep-buffers386,25619
+(defalias 'helm-c-apt-init helm-c-apt-init388,25734
+(defalias 'helm-c-grep-run-save-buffer helm-c-grep-run-save-buffer390,25833
+(defalias 'helm-c-simple-call-tree-init-base helm-c-simple-call-tree-init-base392,25980
+(defalias 'helm-c-ggs-set-number-result helm-c-ggs-set-number-result394,26151
+(defalias 'helm-c-grep-prepare-candidates helm-c-grep-prepare-candidates396,26302
+(defalias 'helm-c-grep-jump-elscreen helm-c-grep-jump-elscreen398,26461
+(defalias 'helm-c-show-completion-display-function helm-c-show-completion-display-function400,26600
+(defalias 'helm-c-find-variable helm-c-find-variable402,26795
+(defalias 'helm-c-build-elvi-list helm-c-build-elvi-list404,26914
+(defalias 'helm-c-advice-toggle helm-c-advice-toggle406,27041
+(defalias 'helm-c-buffers-persistent-kill helm-c-buffers-persistent-kill408,27160
+(defalias 'helm-c-simple-call-tree-analyze-maybe helm-c-simple-call-tree-analyze-maybe410,27319
+(defalias 'helm-c-register-action-transformer helm-c-register-action-transformer412,27506
+(defalias 'helm-c-kill-ring-candidates helm-c-kill-ring-candidates414,27681
+(defalias 'helm-c-bbdb-view-person-action helm-c-bbdb-view-person-action416,27828
+(defalias 'helm-c-generic-browser helm-c-generic-browser418,27987
+(defalias 'helm-c-top-init helm-c-top-init420,28114
+(defalias 'helm-c-ucs-delete-backward helm-c-ucs-delete-backward422,28213
+(defalias 'helm-c-firefox-bookmarks-get-value helm-c-firefox-bookmarks-get-value424,28356
+(defalias 'helm-c-apt-generic-action helm-c-apt-generic-action426,28531
+(defalias 'helm-c-pdfgrep-action-1 helm-c-pdfgrep-action-1428,28670
+(defalias 'helm-c-buffer-query-replace-regexp helm-c-buffer-query-replace-regexp430,28801
+(defalias 'helm-c-apropos-init helm-c-apropos-init432,28976
+(defalias 'helm-c-emms-play-current-playlist helm-c-emms-play-current-playlist434,29091
+(defalias 'helm-c-kill-new helm-c-kill-new436,29262
+(defalias 'helm-c-bookmark-gnus-setup-alist helm-c-bookmark-gnus-setup-alist438,29361
+(defalias 'helm-c-quit-and-execute-action helm-c-quit-and-execute-action440,29528
+(defalias 'helm-c-build-info-index-command helm-c-build-info-index-command442,29687
+(defalias 'helm-c-gentoo-setup-cache helm-c-gentoo-setup-cache444,29850
+(defalias 'helm-c-ratpoison-commands-init helm-c-ratpoison-commands-init446,29989
+(defalias 'helm-c-etags-select helm-c-etags-select448,30148
+(defalias 'helm-c-etags-create-buffer helm-c-etags-create-buffer450,30263
+(defalias 'helm-c-yahoo-suggest-set-candidates helm-c-yahoo-suggest-set-candidates452,30406
+(defalias 'helm-c-org-keywords-show-help helm-c-org-keywords-show-help454,30585
+(defalias 'helm-c-highlight-files helm-c-highlight-files456,30740
+(defalias 'helm-c-get-pid-from-process-name helm-c-get-pid-from-process-name458,30867
+(defalias 'helm-c-insert-latex-math helm-c-insert-latex-math460,31034
+(defalias 'helm-c-buffer-query-replace helm-c-buffer-query-replace462,31169
+(defalias 'helm-c-bmkext-run-edit helm-c-bmkext-run-edit464,31316
+(defalias 'helm-c-skip-boring-files helm-c-skip-boring-files466,31443
+(defalias 'helm-c-transform-file-load-el helm-c-transform-file-load-el468,31578
+(defalias 'helm-c-ucs-insert-char helm-c-ucs-insert-char470,31733
+(defalias 'helm-c-gentoo-setup-use-flags-cache helm-c-gentoo-setup-use-flags-cache472,31860
+(defalias 'helm-c-buffer-help helm-c-buffer-help474,32039
+(defalias 'helm-c-current-directory helm-c-current-directory476,32150
+(defalias 'helm-c-highlight-firefox-bookmarks helm-c-highlight-firefox-bookmarks478,32285
+(defalias 'helm-c-find-file-or-marked helm-c-find-file-or-marked480,32460
+(defalias 'helm-c-query-replace-regexp helm-c-query-replace-regexp482,32603
+(defalias 'helm-c-describe-variable helm-c-describe-variable484,32750
+(defalias 'helm-c-advice-persistent-action helm-c-advice-persistent-action486,32885
+(defalias 'helm-c-show-completion helm-c-show-completion488,33048
+(defalias 'helm-c-google-suggest-set-candidates helm-c-google-suggest-set-candidates490,33175
+(defalias 'helm-c-grep-persistent-action helm-c-grep-persistent-action492,33358
+(defalias 'helm-c-open-file-with-default-tool helm-c-open-file-with-default-tool494,33513
+(defalias 'helm-c-run-external-command helm-c-run-external-command496,33688
+(defalias 'helm-c-bookmark-images-setup-alist helm-c-bookmark-images-setup-alist498,33835
+(defalias 'helm-c-apt-candidate-transformer helm-c-apt-candidate-transformer500,34010
+(defalias 'helm-c-grep-run-persistent-action helm-c-grep-run-persistent-action502,34177
+(defalias 'helm-c-highlight-buffers helm-c-highlight-buffers504,34348
+(defalias 'helm-c-man-default-action helm-c-man-default-action506,34483
+(defalias 'helm-c-advice-candidates helm-c-advice-candidates508,34622
+(defalias 'helm-c-stumpwm-commands-execute helm-c-stumpwm-commands-execute510,34757
+(defalias 'helm-c-ucs-help helm-c-ucs-help512,34920
+(defalias 'helm-c-apt-uninstall helm-c-apt-uninstall514,35019
+(defalias 'helm-c-bookmark-run-jump-other-window helm-c-bookmark-run-jump-other-window516,35138
+(defalias 'helm-c-elisp-library-scan-list helm-c-elisp-library-scan-list518,35325
+(defalias 'helm-c-switch-to-buffer helm-c-switch-to-buffer520,35484
+(defalias 'helm-c-bookmark-man-setup-alist helm-c-bookmark-man-setup-alist522,35615
+(defalias 'helm-c-etags-find-tag-file-directory helm-c-etags-find-tag-file-directory524,35778
+(defalias 'helm-c-xrandr-info helm-c-xrandr-info526,35961
+(defalias 'helm-c-stringify helm-c-stringify528,36072
+(defalias 'helm-c-goto-precedent-file helm-c-goto-precedent-file530,36175
+(defalias 'helm-c-apt-cache-show helm-c-apt-cache-show532,36318
+(defalias 'helm-c-etags-file-modified-p helm-c-etags-file-modified-p534,36441
+(defalias 'helm-c-display-to-real-numbered-line helm-c-display-to-real-numbered-line536,36592
+(defalias 'helm-c-etags-get-tag-file helm-c-etags-get-tag-file538,36775
+(defalias 'helm-c-highlight-not-logged helm-c-highlight-not-logged540,36914
+(defalias 'helm-c-pdfgrep-action helm-c-pdfgrep-action542,37061
+(defalias 'helm-c-adaptive-save-history helm-c-adaptive-save-history544,37184
+(defalias 'helm-c-get-first-line-documentation helm-c-get-first-line-documentation546,37335
+(defalias 'helm-approximate-candidate-number helm-approximate-candidate-number548,37514
+(defvaralias 'helm-c-bbdb-name helm-c-bbdb-name555,37696
+(defvaralias 'helm-c-pdfgrep-default-command helm-c-pdfgrep-default-command557,37811
+(defvaralias 'helm-c-source-time-world helm-c-source-time-world559,37982
+(defvaralias 'helm-c-grep-default-command helm-c-grep-default-command561,38129
+(defvaralias 'helm-c-default-info-index-list helm-c-default-info-index-list563,38288
+(defvaralias 'helm-c-etags-tag-file-dir helm-c-etags-tag-file-dir565,38459
+(defvaralias 'helm-c-source-man-pages helm-c-source-man-pages567,38610
+(defvaralias 'helm-c-source-bookmark-info helm-c-source-bookmark-info569,38753
+(defvaralias 'helm-c-file-cache-files helm-c-file-cache-files571,38912
+(defvaralias 'helm-c-ucs-map helm-c-ucs-map573,39055
+(defvaralias 'helm-c-show-completion-min-window-height helm-c-show-completion-min-window-height575,39162
+(defvaralias 'helm-c-adaptive-history helm-c-adaptive-history577,39373
+(defvaralias 'helm-c-source-bookmarks-local helm-c-source-bookmarks-local579,39516
+(defvaralias 'helm-c-grep-map helm-c-grep-map581,39683
+(defvaralias 'helm-c-source-session helm-c-source-session583,39794
+(defvaralias 'helm-c-source-org-headline helm-c-source-org-headline585,39929
+(defvaralias 'helm-c-source-minibuffer-history helm-c-source-minibuffer-history587,40084
+(defvaralias 'helm-c-source-files-in-current-dir helm-c-source-files-in-current-dir589,40263
+(defvaralias 'helm-c-source-etags-select helm-c-source-etags-select591,40450
+(defvaralias 'helm-c-gentoo-use-flags helm-c-gentoo-use-flags593,40605
+(defvaralias 'helm-c-show-completion-overlay helm-c-show-completion-overlay595,40748
+(defvaralias 'helm-c-buffer-help-message helm-c-buffer-help-message597,40919
+(defvaralias 'helm-c-ucs-max-len helm-c-ucs-max-len599,41074
+(defvaralias 'helm-c-imenu-index-filter helm-c-imenu-index-filter601,41197
+(defvaralias 'helm-c-org-keywords-info-location helm-c-org-keywords-info-location603,41348
+(defvaralias 'helm-c-kill-ring-max-lines-number helm-c-kill-ring-max-lines-number605,41531
+(defvaralias 'helm-c-source-apt helm-c-source-apt607,41714
+(defvaralias 'helm-c-bookmark-map helm-c-bookmark-map609,41833
+(defvaralias 'helm-c-source-xfonts helm-c-source-xfonts611,41960
+(defvaralias 'helm-c-source-kill-ring helm-c-source-kill-ring613,42091
+(defvaralias 'helm-c-home-url helm-c-home-url615,42234
+(defvaralias 'helm-c-etags-cache helm-c-etags-cache617,42345
+(defvaralias 'helm-c-source-latex-math helm-c-source-latex-math619,42468
+(defvaralias 'helm-c-source-bookmark-files&dirs helm-c-source-bookmark-files&dirs621,42615
+(defvaralias 'helm-c-source-emms-dired helm-c-source-emms-dired623,42798
+(defvaralias 'helm-c-source-firefox-bookmarks helm-c-source-firefox-bookmarks625,42945
+(defvaralias 'helm-c-source-ratpoison-commands helm-c-source-ratpoison-commands627,43120
+(defvaralias 'helm-c-apt-show-command helm-c-apt-show-command629,43299
+(defvaralias 'helm-c-pdfgrep-default-function helm-c-pdfgrep-default-function631,43442
+(defvaralias 'helm-c-simple-call-tree-tick helm-c-simple-call-tree-tick633,43617
+(defvaralias 'helm-c-source-register helm-c-source-register635,43780
+(defvaralias 'helm-c-boring-buffer-regexp-list helm-c-boring-buffer-regexp-list637,43919
+(defvaralias 'helm-c-source-locate helm-c-source-locate639,44098
+(defvaralias 'helm-c-source-advice helm-c-source-advice641,44229
+(defvaralias 'helm-c-source-yaoddmuse-emacswiki-edit-or-view helm-c-source-yaoddmuse-emacswiki-edit-or-view643,44360
+(defvaralias 'helm-c-ucs-mode-line-string helm-c-ucs-mode-line-string645,44595
+(defvaralias 'helm-c-xfonts-cache helm-c-xfonts-cache647,44754
+(defvaralias 'helm-c-source-yahoo-suggest helm-c-source-yahoo-suggest649,44881
+(defvaralias 'helm-c-rzgrep-cache helm-c-rzgrep-cache651,45040
+(defvaralias 'helm-c-source-org-keywords helm-c-source-org-keywords653,45167
+(defvaralias 'helm-c-pdfgrep-map helm-c-pdfgrep-map655,45322
+(defvaralias 'helm-c-source-lacarte helm-c-source-lacarte657,45445
+(defvaralias 'helm-c-apt-search-command helm-c-apt-search-command659,45580
+(defvaralias 'helm-c-default-external-file-browser helm-c-default-external-file-browser661,45731
+(defvaralias 'helm-c-source-evaluation-result helm-c-source-evaluation-result663,45926
+(defvaralias 'helm-c-yahoo-suggest-search-url helm-c-yahoo-suggest-search-url665,46101
+(defvaralias 'helm-c-source-occur helm-c-source-occur667,46276
+(defvaralias 'helm-c-source-calculation-result helm-c-source-calculation-result669,46403
+(defvaralias 'helm-c-default-zgrep-command helm-c-default-zgrep-command671,46582
+(defvaralias 'helm-c-show-info-in-mode-line-delay helm-c-show-info-in-mode-line-delay673,46745
+(defvaralias 'helm-c-source-ido-virtual-buffers helm-c-source-ido-virtual-buffers675,46936
+(defvaralias 'helm-c-source-yaoddmuse-emacswiki-post-library helm-c-source-yaoddmuse-emacswiki-post-library677,47119
+(defvaralias 'helm-c-source-top helm-c-source-top679,47354
+(defvaralias 'helm-c-source-colors helm-c-source-colors681,47473
+(defvaralias 'helm-c-read-file-map helm-c-read-file-map683,47604
+(defvaralias 'helm-c-source-file-cache helm-c-source-file-cache685,47735
+(defvaralias 'helm-c-google-suggest-default-browser-function helm-c-google-suggest-default-browser-function687,47882
+(defvaralias 'helm-c-external-programs-associations helm-c-external-programs-associations689,48117
+(defvaralias 'helm-c-source-complex-command-history helm-c-source-complex-command-history691,48316
+(defvaralias 'helm-c-cached-imenu-candidates helm-c-cached-imenu-candidates693,48515
+(defvaralias 'helm-c-gentoo-buffer helm-c-gentoo-buffer695,48686
+(defvaralias 'helm-c-source-simple-call-tree-callers-functions helm-c-source-simple-call-tree-callers-functions697,48817
+(defvaralias 'helm-c-external-commands-list helm-c-external-commands-list699,49060
+(defvaralias 'helm-c-source-ucs helm-c-source-ucs701,49227
+(defvaralias 'helm-c-adaptive-history-length helm-c-adaptive-history-length703,49346
+(defvaralias 'helm-c-source-customize-face helm-c-source-customize-face705,49517
+(defvaralias 'helm-c-source-bookmarks-ssh helm-c-source-bookmarks-ssh707,49680
+(defvaralias 'helm-c-eldoc-in-minibuffer-show-fn helm-c-eldoc-in-minibuffer-show-fn709,49839
+(defvaralias 'helm-c-google-suggest-search-url helm-c-google-suggest-search-url711,50026
+(defvaralias 'helm-c-source-bmkext-addressbook helm-c-source-bmkext-addressbook713,50205
+(defvaralias 'helm-c-source-ctags helm-c-source-ctags715,50384
+(defvaralias 'helm-c-source-eev-anchor helm-c-source-eev-anchor717,50511
+(defvaralias 'helm-c-apt-installed-packages helm-c-apt-installed-packages719,50658
+(defvaralias 'helm-c-apt-all-packages helm-c-apt-all-packages721,50825
+(defvaralias 'helm-c-find-files-doc-header helm-c-find-files-doc-header723,50968
+(defvaralias 'helm-c-source-imenu helm-c-source-imenu725,51131
+(defvaralias 'helm-c-grep-default-function helm-c-grep-default-function727,51258
+(defvaralias 'helm-c-top-command helm-c-top-command729,51421
+(defvaralias 'helm-c-source-bookmark-man helm-c-source-bookmark-man731,51544
+(defvaralias 'helm-c-source-stumpwm-commands helm-c-source-stumpwm-commands733,51699
+(defvaralias 'helm-c-source-idle-time-timers helm-c-source-idle-time-timers735,51870
+(defvaralias 'helm-c-turn-on-show-completion helm-c-turn-on-show-completion737,52041
+(defvaralias 'helm-c-esh-help-message helm-c-esh-help-message739,52212
+(defvaralias 'helm-c-register-max-offset helm-c-register-max-offset741,52355
+(defvaralias 'helm-c-source-bookmark-set helm-c-source-bookmark-set743,52510
+(defvaralias 'helm-c-source-file-name-history helm-c-source-file-name-history745,52665
+(defvaralias 'helm-c-file-cache-initialized-p helm-c-file-cache-initialized-p747,52840
+(defvaralias 'helm-c-grep-max-length-history helm-c-grep-max-length-history749,53015
+(defvaralias 'helm-c-source-jabber-contacts helm-c-source-jabber-contacts751,53186
+(defvaralias 'helm-c-grep-use-ioccur-style-keys helm-c-grep-use-ioccur-style-keys753,53353
+(defvaralias 'helm-c-ctags-modes helm-c-ctags-modes755,53536
+(defvaralias 'helm-c-source-moccur helm-c-source-moccur757,53659
+(defvaralias 'helm-c-source-w3m-bookmarks helm-c-source-w3m-bookmarks759,53790
+(defvaralias 'helm-c-locate-command helm-c-locate-command761,53949
+(defvaralias 'helm-c-etags-tag-file-name helm-c-etags-tag-file-name763,54084
+(defvaralias 'helm-c-source-bookmarks-su helm-c-source-bookmarks-su765,54239
+(defvaralias 'helm-c-source-emms-streams helm-c-source-emms-streams767,54394
+(defvaralias 'helm-c-buffer-map helm-c-buffer-map769,54549
+(defvaralias 'helm-c-source-files-in-all-dired helm-c-source-files-in-all-dired771,54668
+(defvaralias 'helm-c-source-eshell-history helm-c-source-eshell-history773,54847
+(defvaralias 'helm-c-source-absolute-time-timers helm-c-source-absolute-time-timers775,55010
+(defvaralias 'helm-c-source-findutils helm-c-source-findutils777,55197
+(defvaralias 'helm-c-ucs-help-message helm-c-ucs-help-message779,55340
+(defvaralias 'helm-c-source-find-files helm-c-source-find-files781,55483
+(defvaralias 'helm-c-source-recentf helm-c-source-recentf783,55630
+(defvaralias 'helm-c-cache-world helm-c-cache-world785,55765
+(defvaralias 'helm-c-source-picklist helm-c-source-picklist787,55888
+(defvaralias 'helm-c-source-buffer-not-found helm-c-source-buffer-not-found789,56027
+(defvaralias 'helm-c-source-xrandr-change-resolution helm-c-source-xrandr-change-resolution791,56198
+(defvaralias 'helm-c-source-bookmark-w3m helm-c-source-bookmark-w3m793,56401
+(defvaralias 'helm-c-google-suggest-url helm-c-google-suggest-url795,56556
+(defvaralias 'helm-c-source-semantic helm-c-source-semantic797,56707
+(defvaralias 'helm-c-source-mark-ring helm-c-source-mark-ring799,56846
+(defvaralias 'helm-c-source-fixme helm-c-source-fixme801,56989
+(defvaralias 'helm-c-grep-preferred-ext helm-c-grep-preferred-ext803,57116
+(defvaralias 'helm-c-source-gentoo helm-c-source-gentoo805,57267
+(defvaralias 'helm-c-source-bookmarks helm-c-source-bookmarks807,57398
+(defvaralias 'helm-c-source-elisp-library-scan helm-c-source-elisp-library-scan809,57541
+(defvaralias 'helm-c-source-info-pages helm-c-source-info-pages811,57720
+(defvaralias 'helm-c-source-bookmark-gnus helm-c-source-bookmark-gnus813,57867
+(defvaralias 'helm-c-source-elscreen helm-c-source-elscreen815,58026
+(defvaralias 'helm-c-source-emacs-source-defun helm-c-source-emacs-source-defun817,58165
+(defvaralias 'helm-c-source-emacs-lisp-toplevels helm-c-source-emacs-lisp-toplevels819,58344
+(defvaralias 'helm-c-etags-mtime-alist helm-c-etags-mtime-alist821,58531
+(defvaralias 'helm-c-info-pages helm-c-info-pages823,58678
+(defvaralias 'helm-c-grep-default-recurse-command helm-c-grep-default-recurse-command825,58797
+(defvaralias 'helm-c-yaoddmuse-ew-cache helm-c-yaoddmuse-ew-cache827,58988
+(defvaralias 'helm-c-source-google-suggest helm-c-source-google-suggest829,59139
+(defvaralias 'helm-c-etags-tag-file-search-limit helm-c-etags-tag-file-search-limit831,59302
+(defvaralias 'helm-c-w3m-bookmarks-alist helm-c-w3m-bookmarks-alist833,59489
+(defvaralias 'helm-c-source-ff-file-name-history helm-c-source-ff-file-name-history835,59644
+(defvaralias 'helm-c-source-buffers-list helm-c-source-buffers-list837,59831
+(defvaralias 'helm-c-source-simple-call-tree-functions-callers helm-c-source-simple-call-tree-functions-callers839,59986
+(defvaralias 'helm-c-cached-imenu-alist helm-c-cached-imenu-alist841,60229
+(defvaralias 'helm-c-source-emacs-lisp-expectations helm-c-source-emacs-lisp-expectations843,60380
+(defvaralias 'helm-c-source-rd-headline helm-c-source-rd-headline845,60579
+(defvaralias 'helm-c-source-tracker-search helm-c-source-tracker-search847,60730
+(defvaralias 'helm-c-simple-call-tree-related-functions helm-c-simple-call-tree-related-functions849,60893
+(defvaralias 'helm-c-yaoddmuse-cache-file helm-c-yaoddmuse-cache-file851,61108
+(defvaralias 'helm-c-google-suggest-default-function helm-c-google-suggest-default-function853,61267
+(defvaralias 'helm-c-imenu-delimiter helm-c-imenu-delimiter855,61470
+(defvaralias 'helm-c-source-emacs-process helm-c-source-emacs-process857,61609
+(defvaralias 'helm-c-firefox-bookmarks-alist helm-c-firefox-bookmarks-alist859,61768
+(defvaralias 'helm-c-simple-call-tree-function-index helm-c-simple-call-tree-function-index861,61939
+(defvaralias 'helm-c-etags-map helm-c-etags-map863,62142
+(defvaralias 'helm-c-grep-history helm-c-grep-history865,62257
+(defvaralias 'helm-c-cached-imenu-tick helm-c-cached-imenu-tick867,62384
+(defvaralias 'helm-c-source-esh helm-c-source-esh869,62531
+(defvaralias 'helm-c-source-global-mark-ring helm-c-source-global-mark-ring871,62650
+(defvaralias 'helm-c-man-pages helm-c-man-pages873,62821
+(defvaralias 'helm-c-adaptive-done helm-c-adaptive-done875,62936
+(defvaralias 'helm-c-source-bbdb helm-c-source-bbdb877,63067
+(defvaralias 'helm-c-source-regexp helm-c-source-regexp879,63190
+(defvaralias 'helm-c-boring-file-regexp-list helm-c-boring-file-regexp-list881,63321
+(defvaralias 'helm-c-show-completion-use-special-display helm-c-show-completion-use-special-display883,63492
+(defvaralias 'helm-c-apt-query helm-c-apt-query885,63711
+(defvaralias 'helm-c-pdfgrep-default-read-command helm-c-pdfgrep-default-read-command887,63826
+(defvaralias 'helm-c-source-bookmark-images helm-c-source-bookmark-images889,64017
+(defvaralias 'helm-c-source-mac-spotlight helm-c-source-mac-spotlight891,64184
+(defvaralias 'helm-c-yahoo-suggest-url helm-c-yahoo-suggest-url893,64343
+(defvaralias 'helm-c-source-oddmuse-headline helm-c-source-oddmuse-headline895,64490
+(defvaralias 'helm-c-cache-gentoo helm-c-cache-gentoo897,64661
+(defvaralias 'helm-c-zgrep-recurse-flag helm-c-zgrep-recurse-flag899,64788
+(defvaralias 'helm-c-source-use-flags helm-c-source-use-flags901,64939
+(defvaralias 'helm-c-moccur-map helm-c-moccur-map903,65082
+(defvaralias 'helm-c-adaptive-history-file helm-c-adaptive-history-file905,65201
+(defvaralias 'helm-c-grep-default-directory-fn helm-c-grep-default-directory-fn907,65364
+(defvaralias 'helm-c-apt-input-history helm-c-apt-input-history909,65543
+(defvaralias 'helm-c-source-emms-files helm-c-source-emms-files911,65690
+(defvaralias 'helm-async-be-async helm-async-be-async913,65837
+
+helm-apt.el,1203
+(defgroup helm-apt 31,1079
+(defcustom helm-apt-cache-show-function 35,1172
+(defface helm-apt-installed43,1513
+(defface helm-apt-deinstalled48,1639
+(defvar helm-apt-map54,1773
+(defvar helm-source-apt65,2185
+(defvar helm-apt-search-command 83,2843
+(defvar helm-apt-show-command 84,2900
+(defvar helm-apt-installed-packages 85,2953
+(defvar helm-apt-all-packages 86,2994
+(defvar helm-apt-input-history 87,3029
+(defvar helm-apt-show-only 88,3065
+(defvar helm-apt-term-buffer 89,3098
+(defun helm-apt-refresh 91,3133
+(defun helm-apt-persistent-action 96,3277
+(defun helm-apt-candidate-transformer 100,3397
+(defun helm-apt-show-only-installed 121,4536
+(defun helm-apt-show-only-not-installed 127,4674
+(defun helm-apt-show-only-deinstalled 133,4818
+(defun helm-apt-show-all 139,4960
+(defun helm-apt-init 145,5081
+(defun helm-apt-display-to-real 170,6060
+(defvar helm-apt-show-current-package 176,6229
+(define-derived-mode helm-apt-show-mode177,6272
+(defun helm-apt-cache-show 181,6392
+(defun helm-apt-cache-show-1 191,6781
+(defun helm-apt-install 205,7302
+(defun helm-apt-reinstall 209,7436
+(defun helm-apt-uninstall 213,7586
+(defun helm-apt-purge 217,7723
+(defun helm-apt 251,9085
+
+helm-autoloads.el,908
+(defvar helm-mode-line-string 790,21725
+(defvar helm-buffer-mode-line-string 877,23408
+(defvar helm-buffers-ido-virtual-mode-line-string 879,23711
+(defvar helm-ff-mode-line-string 881,24060
+(defvar helm-read-file-name-mode-line-string 884,24344
+(defvar helm-generic-file-mode-line-string 887,24683
+(defvar helm-grep-mode-line-string 890,25016
+(defvar helm-pdfgrep-mode-line-string 893,25332
+(defvar helm-etags-mode-line-string 896,25660
+(defvar helm-ucs-mode-line-string 899,25941
+(defvar helm-bookmark-mode-line-string 902,26207
+(defvar helm-occur-mode-line 905,26520
+(defvar helm-moccur-mode-line 907,26846
+(defvar helm-comp-read-mode-line 909,27108
+(defvar helm-top-mode-line 911,27357
+(defvar helm-apt-mode-line 913,27610
+(defvar helm-el-package-mode-line 915,27863
+(defvar helm-match-plugin-mode 993,30138
+(defvar helm-mode 1148,35453
+(defvar helm-occur-match-plugin-mode 1223,37632
+
+helm-bbdb.el,592
+(defvar bbdb-records)24,861
+(defvar bbdb-buffer-name)25,883
+(defgroup helm-bbdb 37,1414
+(defun helm-bbdb-candidates 41,1491
+(defun helm-bbdb-read-phone 50,1806
+(defun helm-read-repeat-string 68,2722
+(defun helm-bbdb-read-address 79,3185
+(defun helm-bbdb-create-contact 103,4314
+(defun helm-bbdb-get-record 119,4957
+(defvar helm-bbdb-name 125,5110
+(defvar helm-source-bbdb128,5166
+(defvar bbdb-append-records)144,5888
+(defun helm-bbdb-view-person-action 145,5917
+(defun helm-bbdb-collect-mail-addresses 153,6269
+(defun helm-bbdb-compose-mail 160,6553
+(defun helm-bbdb 168,6868
+
+helm-bookmark.el,3407
+(defgroup helm-bookmark 27,945
+(defcustom helm-bookmark-show-location 31,1035
+(defface helm-bookmark-info37,1165
+(defface helm-bookmark-w3m42,1311
+(defface helm-bookmark-gnus47,1457
+(defface helm-bookmark-man52,1580
+(defface helm-bookmark-file57,1707
+(defface helm-bookmark-directory62,1835
+(defface helm-bookmark-addressbook67,1968
+(defvar helm-bookmark-map73,2106
+(defvar helm-bookmarks-cache 88,2850
+(defvar helm-source-bookmarks89,2884
+(defun helm-bookmark-transformer 105,3590
+(defun helm-bookmark-match-fn 118,4171
+(defun helm-bookmark-toggle-filename 125,4483
+(defun helm-bookmark-jump 134,4837
+(defun helm-bookmark-jump-other-window 140,5020
+(defvar helm-source-bookmark-set147,5162
+(defvar helm-source-pp-bookmarks156,5343
+(defun helm-bookmark-search-fn 176,6200
+(defun helm-pp-bookmark-match-fn 184,6553
+(defconst helm-bookmark--non-file-filename 197,6986
+(defun helm-bookmark-gnus-bookmark-p 200,7110
+(defun helm-bookmark-w3m-bookmark-p 207,7458
+(defun helm-bookmark-woman-bookmark-p 214,7802
+(defun helm-bookmark-man-bookmark-p 221,8147
+(defun helm-bookmark-woman-man-bookmark-p 228,8482
+(defun helm-bookmark-info-bookmark-p 234,8741
+(defun helm-bookmark-image-bookmark-p 239,8952
+(defun helm-bookmark-file-p 245,9178
+(defun helm-bookmark-addressbook-p 253,9605
+(defun helm-bookmark-uncategorized-bookmark-p 261,9969
+(defun helm-bookmark-filter-setup-alist 272,10510
+(defvar w3m-async-exec)283,10900
+(defun helm-bookmark-jump-w3m 284,10924
+(defalias 'bookmark-w3m-bookmark-jump bookmark-w3m-bookmark-jump303,11805
+(defalias 'bmkext-jump-woman bmkext-jump-woman307,11983
+(defalias 'bmkext-jump-man bmkext-jump-man308,12034
+(defalias 'bmkext-jump-w3m bmkext-jump-w3m309,12081
+(defalias 'bmkext-jump-gnus bmkext-jump-gnus310,12133
+(defalias 'bookmarkp-jump-gnus bookmarkp-jump-gnus311,12190
+(defalias 'bookmarkp-jump-w3m bookmarkp-jump-w3m312,12250
+(defalias 'bookmarkp-jump-woman bookmarkp-jump-woman313,12305
+(defalias 'bookmarkp-jump-man bookmarkp-jump-man314,12359
+(defvar helm-source-bookmark-w3m321,12466
+(defun helm-bookmark-w3m-setup-alist 335,12927
+(defvar helm-source-bookmark-images341,13101
+(defun helm-bookmark-images-setup-alist 355,13571
+(defvar helm-source-bookmark-man361,13756
+(defun helm-bookmark-man-setup-alist 375,14223
+(defvar helm-source-bookmark-gnus381,14401
+(defun helm-bookmark-gnus-setup-alist 395,14865
+(defvar helm-source-bookmark-info401,15040
+(defun helm-bookmark-info-setup-alist 415,15504
+(defvar helm-source-bookmark-files&dirs421,15696
+(defun helm-bookmark-local-files-setup-alist 435,16186
+(defvar helm-source-bookmark-addressbook442,16378
+(defun helm-bookmark-addressbook-setup-alist 523,20305
+(defvar helm-source-bookmark-uncategorized527,20480
+(defun helm-bookmark-uncategorized-setup-alist 541,20971
+(defun helm-highlight-bookmark 548,21182
+(defun helm-bookmark-edit-bookmark 621,25582
+(defun helm-bookmark-maybe-save-bookmark 641,26634
+(defun helm-bookmark-rename 646,26873
+(defun helm-bookmark-run-edit 673,28141
+(define-helm-type-attribute 'bookmarkbookmark682,28361
+(defun helm-bookmark-run-jump-other-window 698,29038
+(defun helm-bookmark-run-delete 704,29223
+(defun helm-bookmark-get-bookmark-from-name 711,29441
+(defun helm-delete-marked-bookmarks 721,29799
+(defun helm-bookmarks 729,30047
+(defun helm-pp-bookmarks 738,30318
+(defun helm-filtered-bookmarks 747,30615
+
+helm-buffers.el,2893
+(defgroup helm-buffers 29,995
+(defcustom helm-boring-buffer-regexp-list33,1096
+(defcustom helm-buffers-favorite-modes 42,1472
+(defcustom helm-buffer-max-length 50,1808
+(defcustom helm-buffer-details-flag 57,2078
+(defface helm-buffer-saved-out66,2230
+(defface helm-buffer-not-saved71,2395
+(defface helm-buffer-size76,2547
+(defface helm-buffer-process82,2735
+(defface helm-buffer-directory87,2868
+(defvar helm-buffer-map95,3059
+(defvar helm-buffers-ido-virtual-map121,4539
+(defvar helm-buffers-list-cache 134,5113
+(defvar helm-buffer-max-len-mode 135,5150
+(defvar helm-source-buffers-list136,5188
+(defvar helm-source-buffer-not-found164,6562
+(defvar ido-temp-list)179,7202
+(defvar ido-ignored-list)180,7225
+(defvar ido-process-ignore-lists)181,7251
+(defvar helm-source-ido-virtual-buffers183,7286
+(defvar ido-use-virtual-buffers)206,8379
+(defun helm-buffer-list 207,8412
+(defun helm-buffer-size 217,8726
+(defun helm-buffer--show-details 226,8964
+(defun helm-buffer--details 244,9588
+(defun helm-highlight-buffers 288,11690
+(defun helm-buffer--get-preselection 316,13214
+(defun helm-toggle-buffers-details 329,13750
+(defun helm-buffers-sort-transformer 337,14030
+(defun helm-buffer--match-mjm 347,14276
+(defun helm-buffer--match-pattern 360,14873
+(defun helm-buffer-match-major-mode 365,15066
+(defun helm-buffers-match-inside 400,16895
+(defun helm-buffer-query-replace-1 412,17386
+(defun helm-buffer-query-replace-regexp 433,18379
+(defun helm-buffer-query-replace 436,18474
+(defun helm-buffer-toggle-diff 439,18554
+(defun helm-buffer-diff-persistent 447,18895
+(defun helm-revert-buffer 454,19126
+(defun helm-revert-marked-buffers 458,19250
+(defun helm-buffer-revert-and-update 461,19350
+(defun helm-buffer-revert-persistent 468,19653
+(defun helm-buffer-save-and-update 475,19907
+(defun helm-buffer-save-persistent 485,20331
+(defun helm-kill-marked-buffers 492,20575
+(defun helm-buffer-run-kill-buffers 495,20666
+(defun helm-buffer-run-grep 501,20866
+(defun helm-buffer-run-zgrep 507,21044
+(defun helm-buffer-run-query-replace-regexp 513,21224
+(defun helm-buffer-run-query-replace 519,21449
+(defun helm-buffer-switch-other-window 525,21653
+(defun helm-buffer-switch-other-frame 531,21872
+(defun helm-buffer-switch-to-elscreen 537,22088
+(defun helm-buffer-run-ediff 543,22302
+(defun helm-buffer-run-ediff-merge 549,22490
+(defun helm-buffers-persistent-kill 555,22690
+(defun helm-buffers-list-persistent-action 569,23170
+(defun helm-ediff-marked-buffers 574,23340
+(defun helm-ediff-marked-buffers-merge 594,24052
+(defun helm-multi-occur-as-action 599,24234
+(defun helm-buffers-run-multi-occur 612,24853
+(defun helm-buffers-toggle-show-hidden-buffers 618,25040
+(defun helm-skip-boring-buffers 640,25947
+(defun helm-shadow-boring-buffers 643,26060
+(define-helm-type-attribute 'bufferbuffer649,26293
+(defun helm-buffers-list 676,27764
+
+helm-call-tree.el,702
+(defvar helm-source-simple-call-tree-functions-callers28,1048
+(defvar helm-simple-call-tree-tick 40,1613
+(defun helm-simple-call-tree-analyze-maybe 42,1710
+(defun helm-simple-call-tree-init-base 47,1928
+(defun helm-simple-call-tree-functions-callers-init 62,2567
+(defun helm-simple-call-tree-candidates 66,2738
+(defvar helm-simple-call-tree-related-functions 70,2873
+(defvar helm-simple-call-tree-function-index 71,2926
+(defun helm-simple-call-tree-persistent-action 72,2974
+(defun helm-simple-call-tree-find-definition 84,3526
+(defvar helm-source-simple-call-tree-callers-functions93,3801
+(defun helm-simple-call-tree-callers-functions-init 105,4359
+(defun helm-simple-call-tree 109,4489
+
+helm-color.el,251
+(defun helm-custom-faces-init 25,858
+(defvar helm-source-customize-face39,1293
+(defun helm-colors-init 55,1778
+(defvar helm-source-colors66,2070
+(defun helm-colors-get-name 83,2761
+(defun helm-colors-get-rgb 94,3056
+(defun helm-colors 106,3365
+
+helm-command.el,442
+(defgroup helm-command 26,894
+(defcustom helm-M-x-requires-pattern 30,1001
+(defcustom helm-M-x-always-save-history 36,1177
+(defcustom helm-M-x-reverse-history 41,1341
+(defface helm-M-x-key 50,1519
+(defvar helm-M-x-input-history 55,1657
+(defun helm-get-mode-map-from-mode 64,2023
+(defun helm-M-x-current-mode-map-alist 81,2800
+(defun helm-M-x-transformer 88,3052
+(defun helm-M-x--notify-prefix-arg 111,4202
+(defun helm-M-x 118,4412
+
+helm-config.el,1227
+(defgroup helm-config 28,885
+(defcustom helm-command-prefix-key 32,965
+(defcustom helm-minibuffer-history-key 46,1453
+(defvar helm-command-map72,2536
+(defvar helm-command-prefix)114,4764
+(define-prefix-command 'helm-command-prefix)helm-command-prefix115,4793
+(defun helm-configuration 177,6725
+(defvar helm-mode-line-string 962,27174
+(defvar helm-buffer-mode-line-string 1049,28857
+(defvar helm-buffers-ido-virtual-mode-line-string 1051,29160
+(defvar helm-ff-mode-line-string 1053,29509
+(defvar helm-read-file-name-mode-line-string 1056,29793
+(defvar helm-generic-file-mode-line-string 1059,30132
+(defvar helm-grep-mode-line-string 1062,30465
+(defvar helm-pdfgrep-mode-line-string 1065,30781
+(defvar helm-etags-mode-line-string 1068,31109
+(defvar helm-ucs-mode-line-string 1071,31390
+(defvar helm-bookmark-mode-line-string 1074,31656
+(defvar helm-occur-mode-line 1077,31969
+(defvar helm-moccur-mode-line 1079,32295
+(defvar helm-comp-read-mode-line 1081,32557
+(defvar helm-top-mode-line 1083,32806
+(defvar helm-apt-mode-line 1085,33059
+(defvar helm-el-package-mode-line 1087,33312
+(defvar helm-match-plugin-mode 1165,35534
+(defvar helm-mode 1318,40653
+(defvar helm-occur-match-plugin-mode 1392,42646
+
+helm-dabbrev.el,874
+(defgroup helm-dabbrev 23,879
+(defcustom helm-dabbrev-always-search-all 27,980
+(defcustom helm-dabbrev-max-length-result 32,1114
+(defcustom helm-dabbrev-ignored-buffers-regexps40,1415
+(defcustom helm-dabbrev-major-mode-assoc46,1656
+(defcustom helm-dabbrev-lineno-around 57,2188
+(defcustom helm-dabbrev-cycle-thresold 62,2335
+(defcustom helm-dabbrev-case-fold-search 68,2569
+(defvar helm-dabbrev-map79,2987
+(defvar helm-dabbrev--exclude-current-buffer-flag 87,3210
+(defvar helm-dabbrev--cache 88,3265
+(defvar helm-dabbrev--data 89,3298
+(defvar helm-dabbrev--regexp 90,3330
+(defun helm-dabbrev--buffer-list 94,3461
+(defun helm-dabbrev--same-major-mode-p 102,3812
+(defun helm-dabbrev--collect 135,5528
+(defun helm-dabbrev--get-candidates 195,8702
+(defvar helm-source-dabbrev213,9640
+(defun helm-dabbrev-default-action 222,9920
+(defun helm-dabbrev 234,10271
+
+helm-elisp-package.el,471
+(defvar helm-el-package--show-only 24,891
+(defun helm-el-package--init 26,933
+(defun helm-el-package-install 39,1296
+(defun helm-el-package-uninstall 57,2306
+(defun helm-el-package--transformer 93,4348
+(defun helm-el-package-show-installed 105,4913
+(defun helm-el-package-show-all 111,5061
+(defun helm-el-package-show-uninstalled 117,5197
+(defvar helm-el-package-map123,5349
+(defvar helm-source-list-el-package132,5709
+(defun helm-list-elisp-packages 148,6359
+
+helm-elisp.el,2548
+(defgroup helm-elisp 27,935
+(defcustom helm-turn-on-show-completion 31,1032
+(defcustom helm-show-completion-use-special-display 36,1185
+(defcustom helm-show-completion-min-window-height 43,1433
+(defcustom helm-lisp-quoted-function-list49,1639
+(defcustom helm-lisp-unquoted-function-list58,1980
+(defface helm-lisp-show-completion69,2237
+(defface helm-lisp-completion-info74,2400
+(defvar helm-show-completion-overlay 84,2641
+(defun helm-show-completion 86,2731
+(defun helm-show-completion-init-overlay 91,2887
+(defun helm-show-completion-display-function 97,3152
+(defmacro with-helm-show-completion 115,4129
+(defun helm-lisp-completion--predicate-at-point 145,5351
+(defun helm-thing-before-point 182,7059
+(defun helm-bounds-of-thing-before-point 200,7734
+(defun helm-insert-completion-at-point 205,7937
+(defvar helm-lisp-completion--cache 220,8518
+(defvar helm-lgst-len 221,8559
+(defun helm-lisp-completion-at-point 223,8601
+(defun helm-lisp-completion-persistent-action 271,11081
+(defun helm-lisp-completion-transformer 280,11376
+(defun helm-get-first-line-documentation 293,11965
+(defun helm-complete-file-name-at-point 315,12733
+(defun helm-lisp-indent 343,13875
+(defun helm-lisp-completion-or-file-name-at-point 353,14276
+(defun helm-apropos-init 377,15073
+(defun helm-def-source--emacs-variables 396,15842
+(defun helm-def-source--emacs-faces 406,16260
+(defun helm-def-source--helm-attributes 417,16757
+(defun helm-def-source--emacs-commands 428,17264
+(defun helm-def-source--emacs-functions 437,17630
+(defun helm-info-lookup-symbol 448,18125
+(defun helm-apropos 461,18579
+(defvar helm-source-advice480,19237
+(defun helm-advice-candidates 488,19541
+(defun helm-advice-persistent-action 503,20340
+(defun helm-advice-toggle 508,20520
+(defun helm-advice-update-current-display-string 520,20960
+(defun helm-manage-advice 529,21299
+(defvar helm-source-locate-library538,21498
+(defun helm-locate-library-scan-init 552,22057
+(defun helm-locate-library-scan-list 557,22206
+(defun helm-locate-library 565,22497
+(defun helm-set-variable 570,22631
+(define-helm-type-attribute 'variablevariable602,23909
+(defun helm-sexp-eval 611,24212
+(define-helm-type-attribute 'sexpsexp617,24363
+(define-helm-type-attribute 'timertimer628,24717
+(defvar helm-source-absolute-time-timers642,25192
+(defvar helm-source-idle-time-timers647,25321
+(defun helm-timer-real-to-display 652,25447
+(defun helm-timers 663,25873
+(defvar helm-source-complex-command-history674,26133
+(defun helm-complex-command-history 680,26325
+
+helm-elscreen.el,152
+(defun helm-find-buffer-on-elscreen 26,1057
+(defun helm-elscreen-find-file 38,1620
+(defvar helm-source-elscreen42,1749
+(defun helm-elscreen 66,2781
+
+helm-emms.el,479
+(defgroup helm-emms 34,1423
+(defface helm-emms-playlist38,1509
+(defvar emms-stream-list)44,1665
+(defun helm-emms-stream-edit-bookmark 45,1691
+(defun helm-emms-stream-delete-bookmark 67,2767
+(defvar helm-source-emms-streams85,3604
+(defvar helm-source-emms-dired101,4370
+(defvar helm-emms-current-playlist 118,5178
+(defun helm-emms-files-modifier 119,5218
+(defun helm-emms-play-current-playlist 128,5618
+(defvar helm-source-emms-files133,5747
+(defun helm-emms 168,7706
+
+helm-eshell.el,332
+(defvar helm-eshell-history-map36,1334
+(defvar helm-esh-completion-map43,1537
+(defvar helm-source-esh50,1739
+(defvar helm-ec-target 73,2695
+(defun helm-ec-insert 74,2722
+(defun helm-esh-get-candidates 91,3507
+(defvar helm-source-eshell-history146,6067
+(defun helm-esh-pcomplete 166,6916
+(defun helm-eshell-history 205,8699
+
+helm-eval.el,657
+(defgroup helm-eval 24,862
+(defcustom helm-eldoc-in-minibuffer-show-fn28,957
+(defcustom helm-show-info-in-mode-line-delay 35,1153
+(defvar helm-eldoc-active-minibuffers-list 50,1594
+(defvar helm-eval-expression-map52,1643
+(defvar helm-source-evaluation-result66,2281
+(defun helm-eval-new-line-and-indent 89,3590
+(defun helm-eldoc-store-minibuffer 93,3679
+(defun helm-eldoc-show-in-eval 98,3901
+(defun helm-show-info-in-mode-line 115,4777
+(defvar helm-source-calculation-result127,5115
+(defun helm-eval-expression 138,5578
+(defvar eldoc-idle-delay)147,5905
+(defun helm-eval-expression-with-eldoc 149,5946
+(defun helm-calcul-expression 164,6520
+
+helm-external.el,533
+(defgroup helm-external 24,880
+(defcustom helm-raise-command 28,984
+(defcustom helm-external-programs-associations 35,1229
+(defcustom helm-default-external-file-browser 42,1537
+(defvar helm-external-command-history 54,1930
+(defvar helm-external-commands-list 55,1973
+(defun helm-external-commands-list-1 60,2151
+(defun helm-run-or-raise 81,3197
+(defun helm-get-mailcap-for-file 116,4944
+(defun helm-get-default-program-for-file 127,5468
+(defun helm-open-file-externally 140,6108
+(defun helm-run-external-command 187,8635
+
+helm-files.el,9157
+(define-helm-type-attribute 'filefile55,2058
+(defgroup helm-files 86,3505
+(defcustom helm-boring-file-regexp-list90,3594
+(defcustom helm-for-files-preferred-list96,3814
+(defcustom helm-tramp-verbose 108,4129
+(defcustom helm-ff-auto-update-initial-value 115,4362
+(defcustom helm-ff-lynx-style-map 125,4766
+(defcustom helm-ff-ido-style-backspace 132,5007
+(defcustom helm-ff-history-max-length 142,5460
+(defcustom helm-ff-smart-completion 147,5601
+(defcustom helm-ff-tramp-not-fancy 153,5792
+(defcustom helm-ff-exif-data-program 159,5991
+(defcustom helm-ff-exif-data-program-args 164,6134
+(defcustom helm-ff-newfile-prompt-p 169,6272
+(defcustom helm-ff-avfs-directory 175,6433
+(defcustom helm-ff-file-compressed-list 183,6734
+(defcustom helm-ff-printer-list 188,6905
+(defcustom helm-ff-transformer-show-only-basename 197,7308
+(defcustom helm-ff-signal-error-on-dot-files 204,7576
+(defcustom helm-ff-search-library-in-sexp 211,7838
+(defcustom helm-tooltip-hide-delay 216,7990
+(defcustom helm-ff-file-name-history-use-recentf 221,8125
+(defcustom helm-ff-skip-boring-files 226,8294
+(defcustom helm-findutils-skip-boring-files 231,8431
+(defcustom helm-findutils-find-program 236,8586
+(defcustom helm-files-save-history-extra-sources 241,8727
+(defface helm-ff-prefix249,8931
+(defface helm-ff-executable254,9100
+(defface helm-ff-directory259,9241
+(defface helm-ff-symlink264,9402
+(defface helm-ff-invalid-symlink269,9537
+(defface helm-ff-file274,9701
+(defface helm-history-deleted279,9842
+(defface helm-history-remote284,9997
+(defvar helm-find-files-map293,10203
+(defvar helm-read-file-map349,13823
+(defvar helm-esh-on-file-map368,14841
+(defvar helm-find-files-doc-header 377,15079
+(defvar helm-ff-auto-update-flag 379,15231
+(defvar helm-ff-last-expanded 382,15409
+(defvar helm-ff-default-directory 384,15487
+(defvar helm-ff-history 385,15526
+(defvar helm-ff-cand-to-mark 386,15555
+(defvar helm-ff-url-regexp387,15589
+(defvar helm-tramp-file-name-regexp 390,15794
+(defvar helm-marked-buffer-name 391,15861
+(defvar helm-source-find-files397,15939
+(defun helm-dwim-target-directory 461,19462
+(defun helm-find-files-do-action 474,19979
+(defun helm-find-files-copy 508,21699
+(defun helm-find-files-rename 512,21817
+(defun helm-find-files-symlink 516,21941
+(defun helm-find-files-relsymlink 520,22068
+(defun helm-find-files-hardlink 524,22204
+(defun helm-find-files-byte-compile 528,22334
+(defun helm-find-files-load-files 535,22624
+(defun helm-find-files-ediff-files-1 541,22843
+(defun helm-find-files-ediff-files 561,23810
+(defun helm-find-files-ediff-merge-files 564,23903
+(defun helm-find-files-grep 567,24009
+(defun helm-ff-zgrep 574,24254
+(defun helm-ff-pdfgrep 578,24434
+(defun helm-ff-etags-select 588,24908
+(defun helm-find-files-switch-to-hist 598,25400
+(defvar eshell-command-aliases-list 602,25514
+(defvar helm-eshell-command-on-file-input-history 603,25555
+(defun helm-find-files-eshell-command-on-file-1 604,25610
+(defun helm-find-files-eshell-command-on-file 697,30106
+(defun helm-ff-switch-to-eshell 702,30358
+(defun helm-ff-serial-rename-action 716,30925
+(defun helm-ff-member-directory-p 754,32664
+(defun helm-ff-serial-rename 808,35510
+(defun helm-ff-serial-rename-by-symlink 815,35781
+(defun helm-ff-serial-rename-by-copying 822,36064
+(defun helm-ff-backspace 829,36341
+(defun helm-ff-toggle-auto-update 845,36970
+(defun helm-ff-run-toggle-auto-update 850,37180
+(defun helm-ff-run-switch-to-history 856,37401
+(defun helm-ff-run-grep 863,37657
+(defun helm-ff-run-pdfgrep 869,37832
+(defun helm-ff-run-zgrep 875,38008
+(defun helm-ff-run-copy-file 881,38177
+(defun helm-ff-run-rename-file 887,38362
+(defun helm-ff-run-byte-compile-file 893,38553
+(defun helm-ff-run-load-file 899,38762
+(defun helm-ff-run-eshell-command-on-file 905,38953
+(defun helm-ff-run-ediff-file 912,39187
+(defun helm-ff-run-ediff-merge-file 918,39381
+(defun helm-ff-run-symlink-file 925,39598
+(defun helm-ff-run-hardlink-file 931,39792
+(defun helm-ff-run-delete-file 937,39989
+(defun helm-ff-run-complete-fn-at-point 943,40182
+(defun helm-ff-run-switch-to-eshell 950,40413
+(defun helm-ff-run-switch-other-window 956,40616
+(defun helm-ff-run-switch-other-frame 962,40826
+(defun helm-ff-run-open-file-externally 968,41033
+(defun helm-ff-run-open-file-with-default-tool 974,41253
+(defun helm-ff-locate 980,41487
+(defun helm-ff-run-locate 994,42121
+(defun helm-files-insert-as-org-link 1000,42294
+(defun helm-ff-run-insert-org-link 1004,42414
+(defun helm-ff-run-find-file-as-root 1009,42558
+(defun helm-ff-run-gnus-attach-files 1014,42697
+(defun helm-ff-run-etags 1020,42911
+(defun helm-ff-print 1026,43096
+(defun helm-ff-run-print-file 1071,44996
+(defun helm-ff-checksum 1077,45176
+(defun helm-ff-toggle-basename 1097,45931
+(defun helm-ff-run-toggle-basename 1104,46227
+(defvar helm-file-completion-sources1137,47692
+(defun helm-file-completion-source-p 1144,48015
+(defun helm-find-files-down-one-level 1151,48353
+(defun helm-ff-retrieve-last-expanded 1177,49575
+(defun helm-ff-move-to-first-real-candidate 1192,50243
+(defun helm-ff-update-when-only-one-matched 1204,50729
+(defun helm-ff-auto-expand-to-home-or-root 1266,54139
+(defun helm-substitute-in-filename 1292,55581
+(defun helm-point-file-in-dired 1311,56439
+(defun helm-create-tramp-name 1316,56590
+(defun helm-ff-before-action-hook-fn 1338,57653
+(defun helm-ff-set-pattern 1352,58336
+(defun helm-find-files-get-candidates 1399,60732
+(defsubst helm-ff-directory-files 1475,64825
+(defun helm-ff-handle-backslash 1489,65385
+(defun helm-ff-smart-completion-p 1497,65659
+(defun helm-ff-transform-fname-for-completion 1501,65793
+(defun helm-ff-mapconcat-candidate 1537,67630
+(defun helm-dir-is-dot 1556,68330
+(defun helm-ff-save-history 1559,68415
+(defun helm-files-save-file-name-history 1569,68878
+(defun helm-ff-valid-symlink-p 1589,69838
+(defun helm-get-default-mode-for-file 1592,69917
+(defun helm-ff-properties 1598,70186
+(defun helm-ff-properties-persistent 1640,72328
+(defun helm-ff-persistent-delete 1647,72581
+(defun helm-ff-dot-file-p 1654,72826
+(defun helm-ff-quick-delete 1658,72939
+(defun helm-ff-kill-buffer-fname 1676,73793
+(defun helm-ff-kill-or-find-buffer-fname 1683,74014
+(defun helm-ff-run-kill-buffer-persistent 1702,74754
+(defun helm-ff-prefix-filename 1709,75018
+(defun helm-ff-sort-candidates 1728,75976
+(defun helm-ff-filter-candidate-one-by-one 1761,77757
+(defun helm-find-files-action-transformer 1822,80585
+(defun helm-ff-gnus-attach-files 1848,81865
+(defvar image-dired-display-image-buffer)1853,82073
+(defun helm-ff-rotate-current-image-1 1854,82115
+(defun helm-ff-rotate-image-left 1872,82981
+(defun helm-ff-rotate-image-right 1877,83152
+(defun helm-ff-rotate-left-persistent 1882,83321
+(defun helm-ff-rotate-right-persistent 1889,83560
+(defun helm-ff-exif-data 1896,83802
+(defun helm-find-files-persistent-action 1907,84341
+(defun helm-ff-file-compressed-p 1980,88470
+(defun helm-insert-file-name-completion-at-point 1985,88650
+(defun helm-find-files-1 2027,90513
+(defun helm-find-files-initial-input 2049,91408
+(defun helm-find-files-input 2058,91760
+(defun helm-ff-find-url-at-point 2087,93127
+(defun helm-find-library-at-point 2101,93812
+(defvar dired-async-be-async)2129,94959
+(defun helm-get-dest-fnames-from-list 2186,97801
+(defun helm-ff-maybe-mark-candidates 2204,98568
+(defun helm-file-buffers 2226,99350
+(defun helm-delete-file 2234,99664
+(defun helm-delete-marked-files 2263,100946
+(defun helm-find-file-or-marked 2280,101646
+(defun helm-shadow-boring-files 2318,103539
+(defun helm-skip-boring-files 2323,103750
+(defun helm-skip-current-file 2327,103909
+(defun helm-w32-pathname-transformer 2331,104039
+(defun helm-transform-file-load-el 2343,104427
+(defun helm-transform-file-browse-url 2350,104727
+(defun helm-files-in-all-dired-candidates 2364,105230
+(defvar helm-source-files-in-all-dired2374,105636
+(defvar helm-file-cache-initialized-p 2383,105815
+(defvar helm-file-cache-files 2384,105858
+(defvar helm-source-file-cache2386,105894
+(defvar helm-source-file-name-history2410,106794
+(defvar helm-source--ff-file-name-history2418,107103
+(defun helm-file-name-history-transformer 2443,108205
+(defun helm-ff-file-name-history 2451,108589
+(defvar helm-source-recentf2463,108911
+(defun helm-browse-project 2490,110094
+(defun helm-ff-browse-project 2508,110731
+(defun helm-ff-run-browse-project 2514,110977
+(defvar helm-source-session2523,111268
+(defun helm-highlight-files 2541,111936
+(defvar helm-source-files-in-current-dir2571,113355
+(defvar helm-source-tracker-search2588,113970
+(defvar helm-source-mac-spotlight2607,114769
+(defvar helm-source-picklist2617,115065
+(defvar helm-source-findutils2626,115220
+(defun helm-findutils-transformer 2643,116066
+(defun helm-find-shell-command-fn 2651,116478
+(defun helm-find-1 2668,117258
+(defun helm-ff-find-sh-command 2677,117618
+(defun helm-ff-run-find-sh-command 2681,117750
+(defun helm-find 2692,118005
+(defvar org-directory)2702,118297
+(defun helm-find-files 2704,118335
+(defun helm-for-files 2730,119771
+(defun helm-recentf 2738,120061
+
+helm-firefox.el,505
+(defgroup helm-firefox 34,1326
+(defcustom helm-firefox-default-directory 38,1429
+(defvar helm-firefox-bookmark-url-regexp 43,1583
+(defvar helm-firefox-bookmarks-regexp 44,1677
+(defun helm-get-firefox-user-init-dir 46,1741
+(defun helm-guess-firefox-bookmark-file 58,2292
+(defvar helm-firefox-bookmarks-alist 62,2449
+(defvar helm-source-firefox-bookmarks63,2491
+(defun helm-firefox-bookmarks-get-value 87,3500
+(defun helm-highlight-firefox-bookmarks 90,3599
+(defun helm-firefox-bookmarks 97,3866
+
+helm-font.el,682
+(defvar helm-ucs-map23,845
+(defun helm-persistent-xfont-action 38,1349
+(defvar helm-xfonts-cache 46,1645
+(defvar helm-source-xfonts47,1676
+(defvar helm-ucs-max-len 66,2463
+(defun helm-calculate-ucs-max-len 67,2491
+(defun helm-ucs-init 76,2777
+(defun helm-ucs-forward-char 101,3812
+(defun helm-ucs-backward-char 105,3906
+(defun helm-ucs-delete-backward 109,4002
+(defun helm-ucs-insert-char 113,4099
+(defun helm-ucs-persistent-insert 120,4270
+(defun helm-ucs-persistent-forward 126,4455
+(defun helm-ucs-persistent-backward 132,4644
+(defun helm-ucs-persistent-delete 138,4829
+(defvar helm-source-ucs144,5018
+(defun helm-select-xfont 157,5503
+(defun helm-ucs 163,5670
+
+helm-gentoo.el,768
+(defgroup helm-gentoo 28,1012
+(defface helm-gentoo-match 32,1100
+(defvar helm-gentoo-use-flags 38,1242
+(defvar helm-gentoo-buffer 39,1277
+(defvar helm-cache-gentoo 40,1328
+(defvar helm-cache-world 41,1359
+(defvar helm-source-gentoo42,1389
+(defun helm-gentoo-default-action 101,4563
+(defvar helm-source-use-flags112,4992
+(defun helm-gentoo-init-list 150,6499
+(defun helm-gentoo-setup-cache 158,6800
+(defun helm-gentoo-eshell-action 166,7084
+(defun helm-gentoo-get-use 179,7645
+(defun helm-gentoo-setup-use-flags-cache 188,7935
+(defun helm-gentoo-get-url 196,8244
+(defun helm-gentoo-get-world 210,8801
+(defun helm-gentoo-get-local-use 217,9050
+(defun helm-highlight-world 225,9292
+(defun helm-highlight-local-use 233,9528
+(defun helm-gentoo 242,9813
+
+helm-grep.el,3641
+(defgroup helm-grep 33,1157
+(defcustom helm-grep-default-command37,1252
+(defcustom helm-grep-default-recurse-command77,2938
+(defcustom helm-default-zgrep-command84,3202
+(defcustom helm-ack-grep-executable 91,3397
+(defcustom helm-pdfgrep-default-command96,3513
+(defcustom helm-grep-use-ioccur-style-keys 102,3662
+(defcustom helm-pdfgrep-default-read-command 107,3789
+(defcustom helm-grep-max-length-history 118,4135
+(defcustom helm-zgrep-file-extension-regexp123,4277
+(defcustom helm-do-grep-preselect-candidate 129,4454
+(defcustom helm-grep-preferred-ext 134,4609
+(defface helm-grep-match143,4759
+(defface helm-grep-file148,4875
+(defface helm-grep-lineno154,5033
+(defface helm-grep-running159,5166
+(defface helm-grep-finish164,5295
+(defface helm-grep-cmd-line169,5424
+(defvar helm-grep-map178,5589
+(defvar helm-pdfgrep-map194,6374
+(defvar helm-grep-mode-map204,6754
+(defvar helm-rzgrep-cache 219,7325
+(defvar helm-grep-default-function 220,7383
+(defvar helm-zgrep-recurse-flag 221,7435
+(defvar helm-grep-history 222,7472
+(defvar helm-grep-last-targets 223,7503
+(defvar helm-grep-include-files 224,7539
+(defvar helm-grep-in-recurse 225,7576
+(defvar helm-grep-use-zgrep 226,7610
+(defvar helm-grep-last-default-directory 227,7643
+(defvar helm-grep-default-directory-fn 228,7689
+(defvar helm-pdfgrep-targets 231,7874
+(defvar helm-grep-last-cmd-line 232,7908
+(defvar helm-grep-split-line-regexp 233,7945
+(defun helm-grep-prepare-candidates 239,8046
+(defun helm-grep-command 295,11359
+(defun helm-grep-init 311,12199
+(defun helm-grep-collect-candidates 423,18616
+(defun helm-grep-action 433,18816
+(defun helm-grep-persistent-action 478,21028
+(defun helm-grep-other-window 486,21308
+(defun helm-grep-other-frame 490,21448
+(defun helm-grep-jump-elscreen 494,21585
+(defun helm-goto-next-or-prec-file 498,21718
+(defun helm-goto-precedent-file 538,23645
+(defun helm-goto-next-file 548,23980
+(defun helm-grep-run-persistent-action 557,24294
+(defun helm-grep-run-default-action 564,24549
+(defun helm-grep-run-other-window-action 570,24732
+(defun helm-grep-run-other-frame-action 576,24936
+(defun helm-grep-run-save-buffer 583,25152
+(defun helm-grep-save-results 593,25370
+(defun helm-grep-save-results-1 596,25451
+(define-derived-mode helm-grep-mode623,26598
+(defun helm-gm-next-file 631,26782
+(defun helm-gm-precedent-file 636,26877
+(defun helm-grep-mode-quit 641,26978
+(defun helm-grep-mode-jump 646,27069
+(defun helm-grep-mode-jump-other-window-1 653,27299
+(defun helm-grep-mode-jump-other-window-forward 664,27634
+(defun helm-grep-mode-jump-other-window-backward 669,27759
+(defun helm-grep-mode-jump-other-window 674,27886
+(defun helm-grep-hack-types 685,28139
+(defun helm-grep-ack-types-transformer 701,28893
+(defvar helm-grep-ack-types-cache 708,29106
+(defun helm-grep-read-ack-type 709,29145
+(defun helm-grep-guess-extensions 728,29801
+(defun helm-grep-get-file-extensions 748,30805
+(defvar helm-source-grep 770,31814
+(defun helm-do-grep-1 771,31844
+(defun helm-ff-zgrep-1 877,37191
+(defun helm-grep-split-line 899,38001
+(defun helm-grep--filter-candidate-1 910,38479
+(defun helm-grep-filter-one-by-one 927,39304
+(defun helm-grep-highlight-match 936,39705
+(defun helm-grep-buffers-1 963,40785
+(defun helm-grep-buffers 998,42425
+(defun helm-zgrep-buffers 1002,42526
+(defvar helm-pdfgrep-default-function 1011,42770
+(defun helm-pdfgrep-init 1012,42828
+(defun helm-do-pdfgrep-1 1051,44693
+(defun helm-pdfgrep-action 1085,46112
+(defun helm-pdfgrep-action-1 1088,46189
+(defun helm-do-grep 1096,46454
+(defun helm-do-zgrep 1122,47689
+(defun helm-do-pdfgrep 1139,48379
+
+helm-help.el,2218
+(defgroup helm-help 21,821
+(defface helm-helper25,892
+(defvar helm-mode-line-string 35,1062
+(defvar helm-help-message52,1584
+(defun helm-help-internal 105,3485
+(defun helm-help-event-loop 123,4141
+(defun helm-help 140,4901
+(defvar helm-buffer-help-message156,5368
+(defun helm-buffer-help 227,8701
+(defvar helm-ff-help-message236,8898
+(defun helm-ff-help 324,13448
+(defvar helm-read-file-name-help-message333,13637
+(defun helm-read-file-name-help 356,14628
+(defvar helm-generic-file-help-message364,14806
+(defun helm-generic-file-help 395,16130
+(defvar helm-grep-help-message403,16278
+(defun helm-grep-help 426,17252
+(defvar helm-pdfgrep-help-message434,17388
+(defun helm-pdfgrep-help 446,17750
+(defvar helm-etags-help-message454,17889
+(defun helm-etags-help 466,18240
+(defvar helm-ucs-help-message475,18406
+(defun helm-ucs-help 489,18798
+(defvar helm-bookmark-help-message498,18965
+(defun helm-bookmark-help 514,19667
+(defvar helm-esh-help-message523,19857
+(defun helm-esh-help 563,20965
+(defvar helm-buffers-ido-virtual-help-message572,21172
+(defun helm-buffers-ido-virtual-help 587,21751
+(defvar helm-moccur-help-message596,21957
+(defun helm-moccur-help 613,22545
+(defvar helm-top-help-message621,22680
+(defun helm-top-help 635,23061
+(defvar helm-apt-help-message643,23190
+(defun helm-apt-help 657,23631
+(defvar helm-el-package-help-message665,23770
+(defun helm-el-package-help 679,24221
+(defvar helm-buffer-mode-line-string689,24390
+(defvar helm-buffers-ido-virtual-mode-line-string701,24728
+(defvar helm-ff-mode-line-string 713,25112
+(defvar helm-read-file-name-mode-line-string 724,25425
+(defvar helm-generic-file-mode-line-string 736,25795
+(defvar helm-grep-mode-line-string"\748,26159
+(defvar helm-pdfgrep-mode-line-string 760,26505
+(defvar helm-etags-mode-line-string 772,26864
+(defvar helm-ucs-mode-line-string 783,27174
+(defvar helm-bookmark-mode-line-string794,27469
+(defvar helm-occur-mode-line 806,27813
+(defvar helm-moccur-mode-line 819,28174
+(defvar helm-comp-read-mode-line 830,28467
+(defvar helm-top-mode-line 841,28747
+(defvar helm-apt-mode-line 852,29031
+(defvar helm-el-package-mode-line 863,29315
+(defun helm-describe-helm-attribute 878,29656
+
+helm-imenu.el,475
+(defgroup helm-imenu 26,883
+(defcustom helm-imenu-delimiter 30,980
+(defcustom helm-imenu-execute-action-at-once-if-one 35,1121
+(defvar helm-cached-imenu-alist 41,1281
+(defvar helm-cached-imenu-candidates 44,1373
+(defvar helm-cached-imenu-tick 47,1475
+(defvar helm-source-imenu50,1566
+(defun helm-imenu-candidates 70,2418
+(defun helm-imenu--candidates-1 82,2899
+(defun helm-imenu--get-prop 93,3406
+(defun helm-imenu-transformer 106,3870
+(defun helm-imenu 123,4685
+
+helm-info.el,398
+(defgroup helm-info 30,1096
+(defun helm-build-info-index-command 37,1251
+(defun helm-define-info-index-sources 48,1696
+(defun helm-info-index-set 66,2639
+(defcustom helm-default-info-index-list70,2741
+(defcustom helm-info-default-sources86,3402
+(defvar helm-info-pages 97,3674
+(defun helm-info-pages-init 102,3802
+(defvar helm-source-info-pages117,4324
+(defun helm-info-at-point 127,4688
+
+helm-locate.el,686
+(defgroup helm-locate 28,988
+(defcustom helm-locate-db-file-regexp 32,1087
+(defcustom helm-ff-locate-db-filename 38,1255
+(defcustom helm-locate-command 47,1643
+(defcustom helm-locate-create-db-command69,2411
+(defcustom helm-locate-case-fold-search 75,2574
+(defvar helm-generic-files-map87,3019
+(defun helm-ff-find-locatedb 110,4178
+(defun helm-locate-1 131,5090
+(defun helm-locate-set-command 173,7382
+(defvar helm-file-name-history 183,7720
+(defun helm-locate-with-db 184,7756
+(defun helm-locate-init 213,8986
+(defun helm-locate-pattern-transformer 257,11126
+(defvar helm-source-locate268,11569
+(defun helm-locate-read-file-name 284,12127
+(defun helm-locate 303,12891
+
+helm-man.el,216
+(defgroup helm-man 27,1029
+(defcustom helm-man-or-woman-function 31,1110
+(defvar helm-man-pages 39,1407
+(defun helm-man-default-action 44,1533
+(defvar helm-source-man-pages61,2319
+(defun helm-man-woman 87,3391
+
+helm-match-plugin.el,2106
+(defvar helm-mp-default-match-functions 32,1069
+(defvar helm-mp-default-search-functions 33,1114
+(defvar helm-mp-default-search-backward-functions 34,1160
+(defun helm-mp-set-matching-method 36,1216
+(defgroup helm-match-plugin 70,2958
+(defcustom helm-mp-matching-method 74,3030
+(defface helm-match91,3913
+(defcustom helm-mp-highlight-delay 96,4027
+(defcustom helm-mp-highlight-threshold 102,4208
+(define-minor-mode helm-match-plugin-mode109,4409
+(defvar helm-mp-space-regexp 128,5064
+(defun helm-mp-split-pattern 131,5167
+(defun helm-mp-1-make-regexp 144,5725
+(defvar helm-mp-exact-pattern-str 153,5909
+(defvar helm-mp-exact-pattern-real 154,5948
+(defun helm-mp-exact-get-pattern 156,5989
+(defun helm-mp-exact-match 163,6226
+(defun helm-mp-exact-search 166,6321
+(defun helm-mp-exact-search-backward 170,6467
+(defvar helm-mp-prefix-pattern-str 179,6659
+(defvar helm-mp-prefix-pattern-real 180,6699
+(defun helm-mp-prefix-get-pattern 182,6741
+(defun helm-mp-prefix-match 188,6977
+(defun helm-mp-prefix-search 194,7189
+(defun helm-mp-prefix-search-backward 197,7306
+(defvar helm-mp-1-pattern-str 206,7545
+(defvar helm-mp-1-pattern-real 207,7580
+(defun helm-mp-1-get-pattern 209,7617
+(defun helm-mp-1-search 219,7981
+(defun helm-mp-1-search-backward 222,8091
+(defvar helm-mp-2-pattern-str 230,8294
+(defvar helm-mp-2-pattern-real 231,8329
+(defun helm-mp-2-get-pattern 233,8366
+(defun helm-mp-2-search 243,8732
+(defun helm-mp-2-search-backward 246,8842
+(defvar helm-mp-3-pattern-str 254,9028
+(defvar helm-mp-3-pattern-list 255,9063
+(defun helm-mp-3-get-patterns 257,9100
+(defun helm-mp-3-get-patterns-internal 267,9532
+(defun helm-mp-3-match 276,9932
+(defun helm-mp-3-search-base 291,10700
+(defun helm-mp-3-search 310,11635
+(defun helm-mp-3-search-backward 316,11839
+(defun helm-mp-3p-match 326,12120
+(defun helm-mp-3p-search 337,12659
+(defun helm-mp-3p-search-backward 343,12868
+(defun helm-compile-source--match-plugin 353,13124
+(defun helm-mp-highlight-match 385,14693
+(defun helm-mp-highlight-region 396,15225
+(defun helm-mp-highlight-match-internal 408,15735
+
+helm-misc.el,1797
+(defgroup helm-misc 23,844
+(defcustom helm-time-zone-home-location 27,934
+(defcustom helm-mini-default-sources 32,1051
+(defface helm-time-zone-current39,1345
+(defface helm-time-zone-home44,1493
+(defvar LaTeX-math-menu)51,1656
+(defun helm-latex-math-candidates 52,1681
+(defvar helm-source-latex-math59,1962
+(defvar helm-source-fixme71,2323
+(defvar helm-source-rd-headline78,2525
+(defvar helm-source-oddmuse-headline89,2850
+(defvar helm-source-emacs-source-defun98,3167
+(defvar helm-source-emacs-lisp-expectations105,3425
+(defvar helm-source-emacs-lisp-toplevels113,3730
+(defvar helm-source-eev-anchor125,4201
+(defun helm-jabber-online-contacts 146,5117
+(defvar helm-source-jabber-contacts156,5451
+(defun helm-time-zone-transformer 168,5854
+(defvar helm-source-time-world177,6254
+(defun helm-create-lacarte-source 190,6674
+(defun helm-lacarte-candidate-transformer 204,7247
+(defvar helm-source-lacarte 214,7611
+(defun helm-browse-menubar 220,7796
+(defun helm-call-interactively 226,7981
+(defvar helm-source-minibuffer-history243,8619
+(defun helm-comint-input-ring-action 264,9306
+(defvar helm-source-comint-input-ring270,9513
+(defvar helm-source-ratpoison-commands282,9862
+(defun helm-ratpoison-commands-init 290,10171
+(defun helm-ratpoison-commands-display-to-real 305,10800
+(defun helm-ratpoison-commands-execute 309,10936
+(defvar helm-source-stumpwm-commands315,11072
+(defun helm-stumpwm-commands-init 322,11309
+(defun helm-stumpwm-commands-execute 332,11686
+(defun helm-world-time 336,11803
+(defun helm-insert-latex-math 342,11973
+(defun helm-eev-anchors 348,12158
+(defun helm-ratpoison-commands 354,12327
+(defun helm-stumpwm-commands(361,12553
+(defun helm-mini 368,12717
+(defun helm-minibuffer-history 376,12981
+(defun helm-comint-input-ring 384,13249
+
+helm-mode.el,888
+(defgroup helm-mode 25,875
+(defcustom helm-completing-read-handlers-alist29,944
+(defcustom helm-comp-read-case-fold-search 71,2695
+(defcustom helm-mode-handle-completion-in-region 77,2916
+(defcustom helm-mode-reverse-history 84,3161
+(defvar helm-comp-read-map90,3322
+(defvar helm-cr-unknow-pattern-flag 103,3641
+(defun helm-cr-empty-string 109,3730
+(defun helm-comp-read-get-candidates 117,3913
+(defun helm-cr-default-transformer 182,7072
+(defvar helm-completion-mode-string 446,19316
+(defvar helm-completion-mode-quit-message448,19362
+(defvar helm-completion-mode-start-message451,19435
+(defun helm-completing-read-symbols457,19539
+(defun helm-completing-read-default-1495,21170
+(defun helm-completing-read-with-cands-in-buffer538,23167
+(defun helm--completion-in-region 870,38761
+(defun helm-mode--in-file-completion-p 952,43054
+(define-minor-mode helm-mode966,43660
+
+helm-net.el,2099
+(defgroup helm-net 27,901
+(defcustom helm-google-suggest-default-browser-function 31,994
+(defcustom helm-home-url 38,1254
+(defcustom helm-surfraw-default-browser-function 43,1375
+(defcustom helm-google-suggest-url49,1578
+(defcustom helm-google-suggest-search-url55,1754
+(defcustom helm-google-suggest-use-curl-p 61,1922
+(defcustom helm-yahoo-suggest-url67,2125
+(defcustom helm-yahoo-suggest-search-url73,2334
+(defcustom helm-surfraw-duckduckgo-url79,2501
+(defcustom helm-search-suggest-action-wikipedia-url88,2807
+(defcustom helm-search-suggest-action-youtube-url95,3033
+(defcustom helm-search-suggest-action-imdb-url102,3252
+(defcustom helm-search-suggest-action-google-maps-url109,3449
+(defcustom helm-search-suggest-action-google-news-url116,3672
+(defun helm-search-suggest-perform-additional-action 129,3991
+(defvar helm-search-suggest-additional-actions133,4165
+(defvar helm-ggs-max-length-real-flag 161,5320
+(defvar helm-ggs-max-length-num-flag 162,5361
+(defun helm-google-suggest-fetch 164,5402
+(defun helm-google-suggest-set-candidates 199,7087
+(defun helm-ggs-set-number-result 240,9349
+(defun helm-google-suggest-action 255,9877
+(defvar helm-google-suggest-default-function263,10205
+(defvar helm-source-google-suggest267,10342
+(defun helm-google-suggest-emacs-lisp 276,10681
+(defun helm-yahoo-suggest-fetch 284,10861
+(defun helm-yahoo-suggest-set-candidates 299,11446
+(defun helm-yahoo-suggest-action 308,11767
+(defvar helm-source-yahoo-suggest313,11989
+(defvar helm-browse-url-chromium-program 328,12403
+(defvar helm-browse-url-uzbl-program 329,12464
+(defvar helm-browse-url-default-browser-alist330,12517
+(defun helm-browse-url-chromium 358,13751
+(defun helm-browse-url-uzbl 364,13924
+(defun helm-browse-url-default-browser 369,14100
+(defun helm-browse-url 378,14513
+(defvar helm-surfraw-engines-history 391,14805
+(defvar helm-surfraw-input-history 392,14847
+(defvar helm-surfraw--elvi-cache 393,14887
+(defun helm-build-elvi-list 395,14926
+(defun helm-surfraw 404,15266
+(defun helm-google-suggest 434,16756
+(defun helm-yahoo-suggest 440,16949
+
+helm-org.el,210
+(defvar helm-source-org-headline29,984
+(defun helm-org-headline-insert-link-to-headline 55,1884
+(defun helm-org-headline-refile 62,2148
+(defun helm-org-keywords 163,6378
+(defun helm-org-headlines 171,6677
+
+helm-pkg.el,28
+(define-package "helm" 1,0
+
+helm-plugin.el,619
+(defvar Info-history)32,1094
+(defun helm-info-goto 59,2174
+(defun helm-info-display-to-real 63,2280
+(defun helm-make-info-source 70,2644
+(defun helm-compile-source--info-index 80,2953
+(defun helm-compile-source--candidates-file 106,3709
+(defun helm-p-candidates-file-init 118,4224
+(defun helm-compile-source--helm-headline 157,5385
+(defun helm-headline-init 168,5808
+(defun helm-headline-get-candidates 183,6445
+(defun helm-headline-make-candidate-buffer 226,8583
+(defun helm-headline-goto-position 235,8980
+(defun helm-compile-source--persistent-help 244,9238
+(defun helm-persistent-help-string 248,9441
+
+helm-regexp.el,1696
+(defgroup helm-regexp 25,895
+(defcustom helm-moccur-always-search-in-current 29,994
+(defcustom helm-m-occur-use-ioccur-style-keys 34,1155
+(defface helm-moccur-buffer40,1316
+(defvar helm-moccur-map46,1472
+(defvar helm-build-regexp-history 63,2267
+(defun helm-query-replace-regexp 64,2306
+(defun helm-kill-regexp-as-sexp 72,2669
+(defun helm-kill-regexp 77,2841
+(defun helm-query-replace-args 81,2979
+(defvar helm-source-regexp95,3548
+(defun helm-regexp-get-line 116,4371
+(defun helm-regexp-persistent-action 130,5024
+(defun helm-regexp-kill-new 134,5122
+(defun helm-quote-whitespace 138,5210
+(defvar helm-source-occur 146,5374
+(defun helm-occur-init-source 147,5405
+(defvar helm-multi-occur-buffer-list 158,5618
+(defun helm-m-occur-init 160,5661
+(defun helm-m-occur-get-line 177,6368
+(defun helm-m-occur-persistent-action 215,8002
+(defun helm-m-occur-run-persistent-action 219,8123
+(defun helm-m-occur-goto-line 224,8245
+(defun helm-m-occur-goto-line-ow 230,8508
+(defun helm-m-occur-goto-line-of 238,8800
+(defun helm-m-occur-run-goto-line-ow 246,9085
+(defun helm-m-occur-run-goto-line-of 252,9292
+(defun helm-m-occur-run-default-action 258,9496
+(define-minor-mode helm-occur-match-plugin-mode264,9652
+(defvar helm-source-moccur276,10128
+(defun helm-m-occur-filter-one-by-one 300,10951
+(defun helm-multi-occur-1 320,11690
+(defun helm-display-to-real-numbered-line 329,12014
+(define-helm-type-attribute 'lineline342,12426
+(define-helm-type-attribute 'file-linefile-line361,13126
+(defun helm-regexp 383,13939
+(defun helm-occur 398,14511
+(defun helm-occur-from-isearch 411,15004
+(defun helm-multi-occur 427,15517
+(defun helm-multi-occur-from-isearch 446,16237
+
+helm-ring.el,1012
+(defgroup helm-ring 28,1004
+(defcustom helm-kill-ring-threshold 32,1099
+(defcustom helm-kill-ring-max-lines-number 37,1251
+(defcustom helm-kill-ring-show-completion 44,1544
+(defcustom helm-register-max-offset 49,1685
+(defvar helm-kill-ring-map58,1846
+(defvar helm-source-kill-ring66,2097
+(defun helm-kill-ring-candidates 82,2774
+(defun helm-kill-ring-transformer 88,3038
+(defun helm-kill-ring-action 107,3868
+(defun helm-mark-ring-get-marks 143,5454
+(defun helm-mark-ring-get-candidates 152,5745
+(defvar helm-source-mark-ring161,6093
+(defvar helm-source-global-mark-ring174,6577
+(defun helm-global-mark-ring-format-buffer 189,7341
+(defun helm-global-mark-ring-get-candidates 201,7779
+(defvar helm-source-register216,8334
+(defun helm-register-candidates 224,8560
+(defun helm-register-action-transformer 289,11413
+(defun helm-mark-ring 320,12812
+(defun helm-global-mark-ring 328,13021
+(defun helm-all-mark-rings 336,13258
+(defun helm-register 346,13564
+(defun helm-show-kill-ring 354,13767
+
+helm-semantic.el,252
+(defun helm-semantic-init-candidates 31,1050
+(defun helm-semantic-default-action 61,2241
+(defun helm-semantic--maybe-set-needs-update 74,2803
+(defvar helm-source-semantic81,3062
+(defun helm-semantic 99,3776
+(defun helm-semantic-or-imenu 108,4050
+
+helm-sys.el,1098
+(defgroup helm-sys 25,874
+(defun helm-top-command-set-fn 29,947
+(defcustom helm-top-command 35,1188
+(defvar helm-top-sort-fn 53,1859
+(defvar helm-top-map54,1889
+(defvar helm-source-top64,2289
+(defun helm-top-transformer 78,2816
+(defun helm-top-action-transformer 84,3057
+(defun helm-top-sh 106,4293
+(defun helm-top-sh-persistent-action 111,4503
+(defun helm-top-init 116,4622
+(defun helm-top-display-to-real 124,4921
+(defun helm-top-set-mode-line 130,5042
+(defun helm-top-sort-transformer 135,5311
+(defun helm-top-sort-by-com 148,5862
+(defun helm-top-sort-by-mem 155,6070
+(defun helm-top-sort-by-user 162,6308
+(defun helm-top-run-sort-by-com 170,6534
+(defun helm-top-run-sort-by-cpu 177,6705
+(defun helm-top-run-sort-by-mem 184,6858
+(defun helm-top-run-sort-by-user 191,7029
+(defun helm-xrandr-info 203,7266
+(defun helm-xrandr-screen 217,7791
+(defun helm-xrandr-output 221,7885
+(defvar helm-source-xrandr-change-resolution225,7979
+(defvar helm-source-emacs-process251,8852
+(defun helm-top 265,9410
+(defun helm-list-emacs-process 275,9700
+(defun helm-xrandr-set 281,9877
+
+helm-tags.el,970
+(defgroup helm-tags 25,866
+(defcustom helm-etags-tag-file-name 29,961
+(defcustom helm-etags-tag-file-search-limit 34,1068
+(defcustom helm-etags-match-part-only 40,1259
+(defcustom helm-etags-execute-action-at-once-if-one 46,1419
+(defvar helm-etags-map53,1590
+(defvar helm-ctags-modes67,1982
+(defun helm-ctags-init 72,2213
+(defvar helm-source-ctags98,3374
+(defvar helm-etags-mtime-alist 112,3597
+(defvar helm-etags-cache 114,3691
+(defun helm-etags-get-tag-file 117,3811
+(defun helm-etags-all-tag-files 128,4294
+(defun helm-etags-find-tag-file-directory 140,4775
+(defun helm-etags-get-header-name 161,5779
+(defun helm-etags-create-buffer 167,5970
+(defun helm-etags-init 193,7061
+(defun helm-etags-split-line 215,8060
+(defvar helm-source-etags-select220,8255
+(defvar find-tag-marker-ring)239,9025
+(defun helm-etags-default-action 241,9056
+(defun helm-etags-mtime 260,9834
+(defun helm-etags-file-modified-p 264,9953
+(defun helm-etags-select 274,10270
+
+helm-utils.el,2676
+(defgroup helm-utils 28,992
+(defcustom helm-su-or-sudo 32,1067
+(defcustom helm-yank-symbol-first 37,1181
+(defcustom helm-default-kbsize 43,1352
+(defvar helm-goto-line-before-hook 49,1545
+(defvar helm-save-pos-before-jump-register 54,1730
+(defface helm-selection-line57,1856
+(defadvice cua-delete-region 170,6779
+(defadvice copy-region-as-kill 173,6870
+(defun helm-ff-find-printers 182,7026
+(defun helm-switch-to-buffer 194,7513
+(defun helm-substring 213,8274
+(defun helm-string-multibyte-p 233,9074
+(defun helm-get-pid-from-process-name 238,9237
+(defun helm-region-active-p 256,9946
+(defun helm-goto-char 259,10039
+(defun helm-goto-line 268,10338
+(defun helm-save-pos-to-register-before-jump 277,10682
+(defun helm-save-current-pos-to-mark-ring 284,10987
+(defun helm-show-all-in-this-source-only 293,11290
+(defun helm-display-all-sources 305,11798
+(defun helm-displaying-source-names 310,11953
+(defun helm-files-match-only-basename 320,12369
+(defun helm-skip-entries 337,13119
+(defun helm-shadow-entries 345,13443
+(defun helm-stringify 355,13858
+(defun helm-symbolify 361,14001
+(defun helm-describe-function 367,14139
+(defun helm-describe-variable 372,14268
+(defun helm-find-function 377,14394
+(defun helm-find-variable 381,14499
+(defun helm-kill-new 385,14601
+(defun helm-quit-and-find-file 404,15312
+(defvar helm-walk-ignore-directories441,16903
+(defun helm-generic-sort-fn 488,19289
+(defun helm-basename 516,20671
+(defun helm-basedir 526,21162
+(defun helm-ff-get-host-from-tramp-invalid-fname 531,21322
+(defun helm-file-human-size 540,21697
+(defun helm-split-mode-file-attributes 647,26984
+(defun helm-current-directory 665,27733
+(defmacro with-helm-display-marked-candidates 672,27959
+(defvar helm-match-line-overlay 693,28744
+(defun helm-highlight-current-line 695,28782
+(defun helm-match-line-cleanup 710,29387
+(defun helm-match-line-update 715,29540
+(defun helm-w32-prepare-filename 723,29813
+(defun helm-w32-shell-execute-open-file 732,30109
+(defun helm-open-file-with-default-tool 737,30273
+(defun helm-open-dired 751,30891
+(defun helm-action-line-goto 759,31135
+(defun helm-require-or-error 776,31882
+(defun helm-filtered-candidate-transformer-file-line 780,32017
+(defun helm-filtered-candidate-transformer-file-line-1 784,32195
+(defun helm-find-file-as-root 815,33616
+(defun helm-find-many-files 825,34026
+(defun helm-goto-line-with-adjustment 828,34111
+(defun helm-quit-and-execute-action 863,35487
+(defvar helm-yank-point 872,35684
+(defun helm-insert-in-minibuffer 874,35714
+(defun helm-yank-text-at-point 889,36369
+(defun helm-reset-yank-point 918,37494
+(defun helm-html-bookmarks-to-alist 925,37742
+
+helm-w3m.el,524
+(defgroup helm-w3m 33,1153
+(defface helm-w3m-bookmarks 37,1246
+(defvar w3m-bookmark-file 41,1364
+(defvar helm-w3m-bookmarks-regexp 42,1414
+(defvar helm-w3m-bookmark-url-regexp 43,1473
+(defvar helm-w3m-bookmarks-alist 44,1553
+(defvar helm-source-w3m-bookmarks45,1591
+(defun helm-w3m-bookmarks-get-value 85,3214
+(defun helm-w3m-browse-bookmark 89,3341
+(defun helm-highlight-w3m-bookmarks 94,3589
+(defun helm-w3m-delete-bookmark 101,3823
+(defun helm-w3m-rename-bookmark 114,4209
+(defun helm-w3m-bookmarks 129,4736
+
+helm-yaoddmuse.el,579
+(defvar helm-yaoddmuse-use-cache-file 28,1145
+(defvar helm-yaoddmuse-cache-file 29,1188
+(defvar helm-yaoddmuse-ew-cache 30,1255
+(defvar yaoddmuse-pages-hash)31,1292
+(defun helm-yaoddmuse-get-candidates 33,1323
+(defvar helm-source-yaoddmuse-emacswiki-edit-or-view44,1725
+(defvar helm-source-yaoddmuse-emacswiki-post-library81,3399
+(defun helm-yaoddmuse-action-transformer 104,4254
+(defun helm-yaoddmuse-cache-pages 113,4594
+(defun helm-yaoddmuse-init 132,5266
+(defun helm-yaoddmuse-emacswiki-edit-or-view 144,5668
+(defun helm-yaoddmuse-emacswiki-post-library 154,5945
+
+helm.el,15890
+(defun helm-define-multi-key 38,1332
+(defmacro helm-multi-key-defun 58,2107
+(defun helm-make-multi-command 67,2534
+(defun helm-run-multi-key-command 77,2965
+(defun helm-iter-list 94,3789
+(defun helm-iter-next 102,3966
+(defvar helm-map116,4338
+(defgroup helm 210,9683
+(defcustom helm-completion-window-scroll-margin 214,9757
+(defcustom helm-display-source-at-screen-top 222,10011
+(defcustom helm-candidate-number-limit 229,10285
+(defcustom helm-idle-delay 240,10730
+(defcustom helm-input-idle-delay 253,11279
+(defcustom helm-full-frame 267,11787
+(defvaralias 'helm-samewindow helm-samewindow273,11943
+(defcustom helm-quick-update 276,12061
+(defcustom helm-candidate-separator283,12312
+(defcustom helm-save-configuration-functions289,12454
+(defcustom helm-persistent-action-use-special-display 303,13139
+(defcustom helm-scroll-amount 308,13300
+(defcustom helm-display-function 317,13571
+(defcustom helm-case-fold-search 324,13786
+(defcustom helm-file-name-case-fold-search339,14421
+(defcustom helm-reuse-last-window-split-state 350,14718
+(defcustom helm-split-window-preferred-function 358,15063
+(defcustom helm-split-window-default-side 363,15224
+(defcustom helm-split-window-in-side-p 383,15992
+(defcustom helm-always-two-windows 392,16315
+(defcustom helm-sources-using-default-as-input 401,16665
+(defcustom helm-delete-minibuffer-contents-from-point 411,17163
+(defcustom helm-follow-mode-persistent 417,17386
+(defcustom helm-prevent-escaping-from-minibuffer 425,17724
+(defcustom helm-truncate-lines 430,17867
+(defcustom helm-move-to-line-cycle-in-source 436,17997
+(defface helm-source-header446,18226
+(defface helm-visible-mark458,18600
+(defface helm-header470,18982
+(defface helm-candidate-number475,19100
+(defface helm-selection480,19331
+(defface helm-separator486,19561
+(defface helm-action492,19741
+(defvar helm-type-attributes 501,19881
+(defvar helm-source-filter 511,20291
+(defvar helm-action-buffer 517,20488
+(defvar helm-selection-overlay 520,20561
+(defvar helm-async-processes 523,20657
+(defvar helm-before-initialize-hook 526,20762
+(defvar helm-after-initialize-hook 530,20898
+(defvar helm-update-hook 535,21076
+(defvar helm-after-update-hook 541,21319
+(defvar helm-cleanup-hook 546,21571
+(defvar helm-select-action-hook 550,21696
+(defvar helm-before-action-hook 553,21774
+(defvar helm-after-action-hook 559,21957
+(defvar helm-exit-minibuffer-hook 562,22026
+(defvar helm-after-persistent-action-hook 565,22106
+(defvar helm-move-selection-before-hook 568,22197
+(defvar helm-move-selection-after-hook 571,22293
+(defvar helm-restored-variables574,22387
+(defvar helm-execute-action-at-once-if-one 582,22599
+(defvar helm-quit-if-no-candidate 585,22722
+(defvar helm-maybe-use-default-as-input 589,22883
+(defvar helm-source-in-each-line-flag 594,23078
+(defvar helm-debug-variables 598,23211
+(defvar helm-debug-buffer 602,23363
+(defvar helm-debug 604,23410
+(defvar helm-compile-source-functions609,23650
+(defvar helm-current-prefix-arg 619,23892
+(defvar helm-saved-action 621,23986
+(defvar helm-saved-current-source 623,24074
+(defvar helm-compiled-sources 625,24176
+(defvar helm-in-persistent-action 627,24251
+(defvar helm-last-buffer 629,24336
+(defvar helm-saved-selection 631,24414
+(defvar helm-sources 633,24522
+(defvar helm-delayed-init-executed 635,24605
+(defvar helm-buffer 636,24645
+(defvar helm-current-buffer 638,24707
+(defvar helm-buffer-file-name 640,24783
+(defvar helm-default-directory 642,24874
+(defvar helm-candidate-cache 644,24975
+(defvar helm-pattern 646,25103
+(defvar helm-input 648,25182
+(defvar helm-input-local 650,25250
+(defvar helm-source-name 652,25361
+(defvar helm-current-source 653,25391
+(defvar helm-candidate-buffer-alist 654,25424
+(defvar helm-match-hash 655,25465
+(defvar helm-cib-hash 656,25521
+(defvar helm-tick-hash 657,25575
+(defvar helm-issued-errors 658,25630
+(defvar helm-debug-root-directory 659,25662
+(defvar helm-last-log-file 664,25923
+(defvar helm-follow-mode 666,26003
+(defvar helm-let-variables 667,26033
+(defvar helm-split-window-state 668,26065
+(defvar helm--window-side-state 669,26102
+(defvar helm-selection-point 670,26139
+(defvar helm-alive-p 671,26173
+(defvar helm-visible-mark-overlays 672,26199
+(defvar helm-update-blacklist-regexps 673,26239
+(defvar helm-suspend-update-flag 675,26380
+(defvar helm-force-updating-p 676,26418
+(defvar helm-exit-status 677,26453
+(defvar helm-minibuffer-confirm-state 684,26787
+(defvar helm-quit 685,26830
+(defvar helm-attributes 686,26853
+(defvar helm-buffers 687,26915
+(defvar helm-current-position 689,26995
+(defvar helm-last-frame-or-window-configuration 693,27183
+(defvar helm-onewindow-p 695,27301
+(defvar helm-types 696,27331
+(defvar helm-mode-line-string-real 697,27355
+(defvar helm-persistent-action-display-window 698,27433
+(defvar helm-marked-candidates 699,27484
+(defvar helm-in-file-completion-p 701,27576
+(defvar helm--mode-line-display-prefarg 702,27615
+(defun helm-log 706,27683
+(defun helm-log-run-hook 727,28635
+(defmacro helm-log-eval 735,28904
+(defun helm-log-get-current-function 745,29282
+(defun helm-log-error 756,29768
+(defun helm-log-save-maybe 765,30141
+(defun helm-debug-open-last-log 788,31211
+(defun helm-print-error-messages 797,31520
+(defadvice next-history-element 807,31978
+(defadvice previous-history-element 814,32193
+(defmacro helm-aif 830,32830
+(defun helm-mklist 837,33130
+(defun helm-this-command 844,33327
+(defun helm-buffer-get 862,33907
+(defun helm-window 868,34072
+(defun helm-action-window 872,34174
+(defmacro with-helm-window 876,34291
+(defmacro with-helm-current-buffer 882,34466
+(defmacro with-helm-buffer 891,34836
+(defmacro with-helm-restore-variables(897,35002
+(defmacro with-helm-default-directory 908,35458
+(defun helm-default-directory 915,35742
+(defmacro with-helm-temp-hook 919,35899
+(defmacro with-helm-after-update-hook 930,36247
+(defmacro with-helm-alive-p 935,36431
+(defun helm-get-attribute-from-source-type 979,38288
+(defun helm-get-attribute-from-type 986,38531
+(defun helm-get-actions-from-type 991,38731
+(defun helm-inherit-attribute-from-source 996,38914
+(defun helm-append-at-nth 1002,39115
+(defun helm-add-action-to-source 1012,39432
+(defun helm-delete-action-from-source 1031,40317
+(defun helm-set-source-filter 1082,42964
+(defun helm-set-sources 1121,44354
+(defun helm-get-sources 1132,44822
+(defun helm-get-action 1189,47156
+(defun helm-get-current-source 1200,47583
+(defun helm-buffer-is-modified 1226,48810
+(defun helm-current-buffer-is-modified 1237,49277
+(defun helm-run-after-quit 1241,49442
+(defun define-helm-type-attribute 1251,49747
+(defun helm-document-attribute 1263,50248
+(defun helm-interpret-value 1278,50847
+(defun helm-empty-source-p 1304,51824
+(defun helm-let-internal 1318,52300
+(defun helm-current-line-contents 1332,52776
+(defun helm-funcall-with-source 1336,52924
+(defun helm-funcall-foreach 1347,53480
+(defun helm-normalize-sources 1354,53760
+(defun helm-get-candidate-number 1363,54054
+(defmacro with-helm-quittable 1396,55597
+(defun helm-compose 1406,55903
+(defun helm-composed-funcall-with-source 1438,57254
+(defconst helm-argument-keys1449,57688
+(defun helm 1453,57805
+(defun helm-alive-p 1578,62168
+(defun helm-parse-keys 1587,62514
+(defun helm-internal 1609,63530
+(defun helm-resume 1676,66610
+(defun helm-resume-previous-session-after-quit 1712,68192
+(defun helm-resume-list-buffers-after-quit 1720,68530
+(defun helm-resume-p 1727,68818
+(defun helm-resume-select-buffer 1731,68926
+(defun helm-other-buffer 1744,69372
+(defun helm-nest 1749,69592
+(defun helm-current-position 1783,71030
+(defun helm-frame-or-window-configuration 1801,71816
+(defun helm-split-window-default-fn 1823,73042
+(defun helm-window-in-direction 1853,74569
+(defun helm-display-buffer 1862,74805
+(defun helm-default-display-buffer 1891,76088
+(defun helm-initialize 1909,76840
+(defun helm-initialize-overlays 1929,77739
+(defun helm-restore-position-on-quit 1942,78251
+(defun helm-recent-push 1946,78389
+(defun helm-initial-setup 1952,78652
+(defun helm-create-helm-buffer 1997,80680
+(defun helm-read-pattern-maybe 2027,82098
+(defun helm-exit-or-quit-maybe 2116,87059
+(defun helm-toggle-suspend-update 2132,87720
+(defadvice tramp-read-passwd 2143,88138
+(defun helm-maybe-update-keymap 2159,88762
+(defun helm-cleanup 2173,89298
+(defun helm-clean-up-minibuffer 2194,90083
+(defun helm-check-minibuffer-input 2207,90458
+(defun helm-check-new-input 2214,90712
+(defun helm-compile-sources 2238,91631
+(defun helm-process-delayed-init 2252,92046
+(defun helm-get-candidates 2262,92499
+(defmacro helm-while-no-input 2292,94018
+(defun helm-get-cached-candidates 2301,94320
+(defun helm-transform-mapcar 2324,95352
+(defun helm-process-candidate-transformer 2340,95880
+(defun helm-process-filtered-candidate-transformer 2346,96154
+(defmacro helm--maybe-process-filter-one-by-one-candidate 2352,96462
+(defun helm--initialize-one-by-one-candidates 2360,96839
+(defun helm-process-filtered-candidate-transformer-maybe2370,97290
+(defun helm-process-real-to-display 2380,97738
+(defun helm-transform-candidates 2393,98354
+(defun helm-candidate-number-limit 2408,99013
+(defun helm-candidate-get-display 2419,99443
+(defun helm-process-pattern-transformer 2424,99655
+(defun helm-default-match-function 2430,99913
+(defun helm-match-functions 2435,100113
+(defmacro helm--accumulate-candidates 2441,100370
+(defun helm-take-first-elements 2454,100951
+(defun helm-set-case-fold-search-1 2478,102044
+(defun helm-match-from-candidates 2484,102253
+(defun helm-compute-matches 2507,103386
+(defun helm-render-source 2530,104431
+(defun helm-update 2583,106636
+(defun helm-update-source-p 2667,111041
+(defun helm-delayed-source-p 2686,111934
+(defun helm-update-move-first-line 2693,112196
+(defun helm-force-update 2701,112439
+(defun helm-force-update--reinit 2721,113268
+(defun helm-remove-candidate-cache 2731,113644
+(defun helm-insert-match 2735,113799
+(defun helm-insert-header-from-source 2759,114947
+(defun helm-insert-header 2769,115324
+(defun helm-insert-candidate-separator 2787,116029
+(defun helm-output-filter 2797,116347
+(defun helm-output-filter-1 2801,116533
+(defun helm-output-filter--process-source 2817,117183
+(defun helm-output-filter--collect-candidates 2836,118129
+(defun helm-output-filter--post-process 2859,119361
+(defun helm-process-deferred-sentinel-hook 2869,119754
+(defun helm-kill-async-processes 2901,121367
+(defun helm-kill-async-process 2907,121627
+(defun helm-execute-selection-action 2915,121825
+(defun helm-execute-selection-action-1 2927,122321
+(defun helm-coerce-selection 2951,123352
+(defun helm-get-default-action 2958,123609
+(defun helm-select-action 2965,123809
+(defun helm-show-action-buffer 2989,124950
+(defun helm-display-source-at-screen-top-maybe 3011,125768
+(defun helm-skip-noncandidate-line 3018,126102
+(defun helm-skip-header-and-separator-line 3028,126554
+(defun helm-display-mode-line 3038,127014
+(defun helm-show-candidate-number 3075,129106
+(defun helm-move--previous-multi-line-fn 3126,131328
+(defun helm-move--previous-line-fn 3138,131781
+(defun helm-move--next-multi-line-fn 3149,132175
+(defun helm-move--next-line-fn 3158,132526
+(defun helm-move--previous-page-fn 3170,133051
+(defun helm-move--next-page-fn 3175,133184
+(defun helm-move--beginning-of-buffer-fn 3180,133305
+(defun helm-move--end-of-buffer-fn 3183,133377
+(defun helm-move--end-of-source 3186,133443
+(defun helm-move--beginning-of-source 3190,133590
+(defun helm-move--previous-source-fn 3194,133697
+(defun helm-move--next-source-fn 3202,133921
+(defun helm-move--goto-source-fn 3205,134017
+(defun helm-previous-line 3215,134401
+(defun helm-next-line 3224,134744
+(defun helm-previous-page 3233,135075
+(defun helm-next-page 3239,135242
+(defun helm-beginning-of-buffer 3245,135404
+(defun helm-end-of-buffer 3251,135568
+(defun helm-previous-source 3257,135725
+(defun helm-next-source 3263,135899
+(defun helm-goto-source 3268,136046
+(defun helm-mark-current-line 3272,136214
+(defun helm-confirm-and-exit-minibuffer 3295,137104
+(defun helm-confirm-and-exit-hook 3323,138392
+(defun helm-exit-minibuffer 3331,138692
+(defun helm-keyboard-quit 3341,139002
+(defun helm-get-next-header-pos 3350,139265
+(defun helm-get-previous-header-pos 3354,139410
+(defun helm-pos-multiline-p 3358,139567
+(defun helm-get-next-candidate-separator-pos 3362,139724
+(defun helm-get-previous-candidate-separator-pos 3366,139908
+(defun helm-pos-header-line-p 3370,140104
+(defun helm-pos-candidate-separator-p 3375,140309
+(defun helm-debug-output 3384,140511
+(defun helm-debug-output-function 3389,140674
+(defun helm-kill-buffer-hook 3403,141208
+(defun helm-preselect 3410,141540
+(defun helm-delete-current-selection 3426,142145
+(defun helm-end-of-source-p 3451,143206
+(defun helm-edit-current-selection-internal 3459,143460
+(defmacro helm-edit-current-selection 3474,144028
+(defun helm-set-pattern 3481,144285
+(defun helm-minibuffer-completion-contents 3490,144622
+(defun helm-delete-minibuffer-contents 3496,144845
+(defun helm-compile-source--type 3517,145587
+(defun helm-add-type-attribute 3524,145798
+(defun helm-document-type-attribute 3529,146015
+(defun helm-dummy-candidate 3535,146213
+(defun helm-compile-source--dummy 3540,146392
+(defun helm-candidates-in-buffer 3555,146899
+(defun helm-candidates-in-buffer-search-from-start 3636,150127
+(defun helm-candidates-in-buffer-search-from-end 3640,150299
+(defun helm-candidates-in-buffer-1 3644,150471
+(defun helm-point-is-moved 3663,151388
+(defun helm-search-from-candidate-buffer 3667,151548
+(defun helm-search-match-part 3702,153303
+(defun helm-initial-candidates-from-candidate-buffer 3710,153665
+(defun helm-search-from-candidate-buffer-internal 3722,154288
+(defun helm-candidate-buffer 3735,154615
+(defun helm-init-candidates-in-buffer 3789,157282
+(defun helm-compile-source--candidates-in-buffer 3807,158009
+(defun helm-toggle-resplit-window 3820,158406
+(defun helm-enlarge-window-1 3856,160305
+(defun helm-narrow-window 3865,160596
+(defun helm-enlarge-window 3871,160711
+(defun helm-swap-windows 3877,160827
+(defun helm--get-window-side-state 3918,162855
+(defun helm-replace-buffer-in-window 3929,163351
+(defun helm-select-nth-action 3936,163638
+(defun helm-get-nth-action 3944,163951
+(defun helm-select-2nd-action 3956,164305
+(defun helm-select-3rd-action 3962,164464
+(defun helm-select-4th-action 3968,164623
+(defun helm-select-2nd-action-or-end-of-line 3974,164782
+(defmacro with-helm-display-same-window 3984,165099
+(defun helm-initialize-persistent-action 3991,165404
+(defun helm-persistent-action-display-window 4042,167766
+(defun helm-select-persistent-action-window 4055,168493
+(defun helm-persistent-action-display-buffer 4063,168880
+(defun helm-other-window-base 4102,171081
+(defun helm-scroll-other-window 4109,171367
+(defun helm-scroll-other-window-down 4115,171525
+(defun helm-recenter-top-bottom-other-window 4121,171692
+(defun helm-reposition-window-other-window 4127,171894
+(defun helm-clear-visible-mark 4136,172109
+(defun helm-this-visible-mark 4141,172305
+(defun helm-delete-visible-mark 4146,172465
+(defun helm-make-visible-mark 4155,172766
+(defun helm-toggle-visible-mark 4169,173426
+(defun helm-mark-all 4180,173722
+(defun helm-unmark-all 4220,175595
+(defun helm-toggle-all-marks 4232,175964
+(defun helm-display-all-visible-marks 4244,176373
+(defun helm-current-source-name=4276,177907
+(defun helm-revive-visible-mark 4281,178061
+(defun helm-next-point-in-list 4299,178987
+(defun helm-next-visible-mark 4320,179680
+(defun helm-prev-visible-mark 4333,180073
+(defun helm-yank-selection 4340,180233
+(defun helm-kill-selection-and-quit 4349,180516
+(defun helm-follow-mode 4364,180895
+(defun helm-follow-execute-persistent-action-maybe 4408,183066

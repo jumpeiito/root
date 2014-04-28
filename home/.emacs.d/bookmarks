@@ -1,0 +1,105 @@
+;;;; Emacs Bookmark Format Version 1 ;;;;
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("util"
+ (filename . "f:/home/quicklisp/dists/quicklisp/software/util/")
+ (front-context-string . "  f:/home/quickl")
+ (rear-context-string)
+ (position . 1))
+("ysd"
+ (filename . "y:/23‹g“c/–¢ˆ—/tools/")
+ (front-context-string)
+ (rear-context-string . "1 11:40 ysddata\n")
+ (position . 1073))
+("itobb"
+ (filename . "y:/47ˆÉ“Œ/B_Œ’f/F_program/tools/")
+ (front-context-string . "  y:/47ˆÉ“Œ/B_Œ’f/F")
+ (rear-context-string)
+ (position . 1))
+("ddata"
+ (filename . "d:/“Á’èŒ’fŒ‹‰Êƒf[ƒ^/")
+ (front-context-string . "“Á’èŒ’f®—”Ô†•t‰ÁÏ‚İ\n  d")
+ (rear-context-string . "  0 06-21 12:38 ")
+ (position . 394))
+("xml"
+ (filename . "y:/47ˆÉ“Œ/B_Œ’f/xml-parse/")
+ (front-context-string . "  y:/47ˆÉ“Œ/B_Œ’f/x")
+ (rear-context-string)
+ (position . 1))
+("takat"
+ (filename . "y:/22‚“ˆ/“Á’èŒ’fˆ—Ï•ª/")
+ (front-context-string . "20130316.csv\n  -")
+ (rear-context-string . ".9k 03-16 14:36 ")
+ (position . 523))
+("itob"
+ (filename . "y:/47ˆÉ“Œ/B_Œ’f/")
+ (front-context-string . "XML(D&D).bat\n  -")
+ (rear-context-string . "175 2012-09-18  ")
+ (position . 1022))
+("takashima"
+ (filename . "y:/22‚“ˆ/“Á’èŒ’fˆ—Ï•ª/")
+ (front-context-string . "  y:/22‚“ˆ/“Á’èŒ’fˆ—")
+ (rear-context-string)
+ (position . 1))
+("desktop"
+ (filename . "c:/Users/honbu114.NEWNET/Desktop/")
+ (front-context-string . "2012 @\n  drwxrwx")
+ (rear-context-string . "  0 06-12 17:45 ")
+ (position . 285))
+("ito"
+ (filename . "y:/47ˆÉ“Œ/")
+ (front-context-string . "A_‹‹•t\n  drwxrwxrw")
+ (rear-context-string . "  0 06-11 16:36 ")
+ (position . 242))
+("string-date"
+ (filename . "f:/test.lisp")
+ (front-context-string . "(rxmatch-case-da")
+ (rear-context-string . "(the string\n    ")
+ (position . 8170))
+("duplicate-check"
+ (filename . "f:/20121030/check3.lisp")
+ (front-context-string . "(defun check3-du")
+ (rear-context-string . "t)))\n;; 	   x)\n\n")
+ (position . 7139))
+("kensin"
+ (filename . "d:/“Á’èŒ’fŒ‹‰Êƒf[ƒ^/")
+ (front-context-string . "  d:/“Á’èŒ’fŒ‹‰Êƒf[ƒ^:\n")
+ (rear-context-string)
+ (position . 1))
+("tak"
+ (filename . "y:/22‚“ˆ/")
+ (front-context-string . "  y:/22‚“ˆ:\n  tot")
+ (rear-context-string)
+ (position . 1))
+("inoue"
+ (filename . "y:/44ˆäã/")
+ (front-context-string . "  y:/44ˆäã:\n  tot")
+ (rear-context-string)
+ (position . 1))
+("jump"
+ (filename . "y:/47ˆÉ“Œ/")
+ (front-context-string . "  y:/47ˆÉ“Œ:\n  tot")
+ (rear-context-string)
+ (position . 1))
+("hontai"
+ (filename . "d:/“Á’èŒ’fŒ‹‰Êƒf[ƒ^/“Á’èŒ’f®—”Ô†•t‰ÁÏ‚İ/")
+ (front-context-string . "  d:/“Á’èŒ’fŒ‹‰Êƒf[ƒ^/“Á")
+ (rear-context-string)
+ (position . 1))
+("sango"
+ (filename . "y:/59XŒè/")
+ (front-context-string . ":\n  total used i")
+ (rear-context-string . "XŒè/2012”N“xŒ’fŒ‹‰Êƒf[ƒ^")
+ (position . 24))
+("autorun"
+ (filename . "~/.config/awesome/rc.lua")
+ (front-context-string . "\"xcompmgr -n\",\n\"")
+ (rear-context-string . "runApps = \n   {\n")
+ (position . 18964))
+("org-remember-last-stored"
+ (filename . "~/memo/agenda.org")
+ (front-context-string . "** kernel git\n  ")
+ (rear-context-string . " <2012-01-11 è±Œï½´>\n")
+ (position . 677))
+)

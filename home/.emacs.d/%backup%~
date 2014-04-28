@@ -1,0 +1,92 @@
+(eval-when (:load-toplevel :compile-toplevel :execute)
+  (use-package :util)
+  (use-package :kensin)
+  (use-package :iterate)
+  (load "f:/20130628/kmove/checker.lisp")
+  (load "f:/util2/rece.lisp"))
+
+(defparameter *excel* "c:/Program Files/Microsoft Office/Office12/EXCEL.EXE")
+(kserv::start)
+
+(defun run-excel (path)
+  (sb-ext:run-program *excel* (list (namestring path))))
+
+(defun excel-check (path)
+  (file-main path)
+  (format t "xls checking~%"))
+
+(defun watcher-help ()
+  (format t "
+| help			ヘルプを表示
+| update		システムの修正を反映させる
+| csv			簡易入力シートで届いた受診者が反映されているか確認する
+| force-run | force	監視システムを強制的に作動させる
+| kzg | getfile		連合会のzipファイルからFKCA172、FKAC167ファイルを抽出、移動させる
+| kzm | move		各種zipファイルを適切な位置に移動させる
+| hsido | hs		保健指導用管理ファイルを見る
+| upload | up		USBに適切な名前のフォルダを作り、未登録の人間ドックファイルをコピーする
+| dockfile | df		人間ドック用管理ファイルを見る(更新なし)
+| dockfile-refresh | dr	人間ドック用管理ファイルを見る(更新あり)
+
+他に、
+(1) 簡易入力シートを落として、Enter	-> 半角⇔全角のチェックなどが走る
+(2) zipファイルを落としてEnter		-> 内容を解析して表示
+(3) 再審査・調剤csvを落として、「 rece」(半角空白をあける)と入力してEnter	-> 取消・復活用のエクセルファイルを作る
+"))
+
+(let ((ret ""))
+  (while (not (string= "stop" (setq ret (read-line))))
+    (util::string-case ret
+      ("help"
+       (watcher-help))
+      ("update"
+       (asdf:compile-system :kensin)
+       (require :kensin)
+       (format t "update done~%"))
+      ("172"
+       (format t "kensin::172-xls-main called~%")
+       (kensin::172-xls-main))
+      ("csv"
+       (format t "kcsv::csvlist called~%")
+       (kcsv::csvlist "d:/特定健診結果データ/連合会に送付するもの/2013/")
+       (kcsv::csvlist-xls 0))
+      (("force-run" "force")
+       (format t "kserv::watch-execute-force called~%")
+       (kserv::watch-execute-force)
+       (format t "kserv::watch-execute-force has done.~%"))
+      (("kzg" "getfile")
+       (format t "kzg::getfile called~%")
+       (kzg::getfile))
+      (("kzm" "move")
+       (format t "kzm::move called~%")
+       (kzm::move)
+       (format t "kzm::move has done.~%"))
+      (("dockfile" "df")
+       (run-excel "y:/23吉田/未処理/ドックー全件ファイル.xls"))
+      (("upload" "up")       (format t "upload::copy called~%")
+       (upload::copy)
+       (format t "upload::copy has done.~%"))
+      (("dockfile-refresh" "dr")
+       (format t "dock::tocsv called~%")
+       (dock::tocsv)
+       (format t "dock::toxls called~%")
+       (dock::toxls)
+       (format t "done~%"))
+      (("hsido" "hs")
+       (format t "hsido:make-html called~%")
+       (hsido::make-html)
+       (format t "hsido:make-html called~%"))
+      (t
+       (util::rxmatch-case2
+	ret
+	("(.+\\.zip)$" (file)
+		       (kxml::kxml-to-csv file)
+		       (run-excel (make-pathname :defaults file
+						  :type "csv"))
+		       (format t "csv outputted.~%"))
+	("(.+\\.xls)"  (file)
+		       (sb-thread:make-thread (lambda () (check::file-main file))))
+	("(.+\\.csv) rece" (file)
+			   (rece:main file))
+	(t (format t "Nothing happens.~%")
+	   (force-output)))))))

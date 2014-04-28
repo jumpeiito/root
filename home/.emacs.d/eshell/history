@@ -1,0 +1,28 @@
+ifconfig
+cd ~
+ifconfig
+pkill -9 gnome-panel
+xev
+xmodmap ./.Xmodmap 
+source ~/.bashrc
+ifconfig
+vncserver 
+ps
+vncserver --help
+pkill -9 gnome-panel
+/etc/init.d/xinetd restart
+/etc/init.d/gdm restart
+ls
+zip -r -9 ./[EB110SS]\ スリーピース\ [2010-11-24].zip ./\(成年コミック\)\ \[EB110SS\]\ スリーピース\ \[2010-11-24\]/
+unrar x ./\[魔訶不思議\]_禁距離恋愛.rar 
+zip -r -9 ./[魔訶不思議]\ 禁距離恋愛\ [2010-12-16].zip ./\(成年コミック\)\ \[魔訶不思議\]\ 禁距離恋愛\ \[2010-12-16\]/
+ls
+sudo rm -rf ./site-lisp/
+ls
+sudo ln -s /usr/share/emacs/site-lisp/ site-lisp
+ls
+sudo rm -rf ./site-lisp/
+ls
+sudo ln -s /usr/share/emacs23/site-lisp/ site-lisp
+ls
+sudo synaptic

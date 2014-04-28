@@ -1,0 +1,27 @@
+;; Object bro/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "bro/"
+  :tables (list 
+   (semanticdb-table "eximage.cgi"
+    :major-mode 'scheme-mode
+    :tags nil
+    :file "eximage.cgi"
+    :pointmax 4530
+    :fsize 4551
+    :lastmodtime '(19486 10613)
+    :unmatched-syntax 'nil
+    )
+   (semanticdb-table "ex.cgi"
+    :major-mode 'scheme-mode
+    :tags nil
+    :file "ex.cgi"
+    :pointmax 18
+    :fsize 3959
+    :lastmodtime '(19486 20949)
+    :unmatched-syntax '((semantic-list 2 . 18))
+    )
+   )
+  :file "!home!jumpei!www!bro!semantic.cache"
+  :semantic-tag-version "2.0pre7"
+  :semanticdb-version "2.0pre7"
+  )

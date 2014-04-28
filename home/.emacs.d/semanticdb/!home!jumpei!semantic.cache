@@ -1,0 +1,25 @@
+;; Object jumpei/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "jumpei/"
+  :tables (list 
+   (semanticdb-table "blog.scm"
+    :major-mode 'scheme-mode
+    :tags 
+        '( (".gaucherc" include (:system-flag "/home/jumpei/.gaucherc") nil [42 73])
+            ("htmlprag.scm" include (:system-flag "htmlprag.scm") nil [74 95])
+            ("initial-file" variable (:default-value ("\"/home/jumpei/blog.sxml\"")) nil [96 142])
+            ("hoge" variable (:default-value ((243 . 279))) nil [230 280])
+            ("test-sxml" variable (:default-value ((299 . 382))) nil [281 383])
+            ("blog-html->shtml" function (:arguments ("html")) nil [385 483])
+            ("main" function (:arguments ("args")) nil [485 555]))          
+    :file "blog.scm"
+    :pointmax 556
+    :fsize 950
+    :lastmodtime '(19486 29586)
+    :unmatched-syntax 'nil
+    )
+   )
+  :file "!home!jumpei!semantic.cache"
+  :semantic-tag-version "2.0pre7"
+  :semanticdb-version "2.0pre7"
+  )

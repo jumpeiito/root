@@ -1,0 +1,69 @@
+;; -*- mode:emacs-lisp -*-
+(add-to-list 'load-path "~/site-lisp/slime")
+(setq inferior-lisp-program (concat usb "SBCL1.0\\sbcl.exe --noinform"))
+;(setq inferior-lisp-program "c:\\SBCL\\sbcl.exe --no-inform")
+(setq slime-net-coding-system 'utf-8-unix)
+(add-hook 'lisp-mode-hook (lambda ()
+                            (slime-mode t)
+                            (show-paren-mode)))
+(setq slime-lisp-implementations
+           `((sbcl    (,(concat usb "SBCL1.0\\sbcl.exe")
+			"--noinform" "--core"
+			,(concat usb "SBCL1.0\\sbcl.core")))
+	     (clisp   (,(concat usb "clisp\\clisp.exe")))
+	     ;; (clojure ("c:\\windows\\system32\\java.exe" "-cp" "f:\\clojure-1.4.0\\clojure-1.4.0.jar" "clojure.main"))
+	     (clojure ((concat "home\\clojure.bat")))))
+(setq lisp-indent-function 'common-lisp-indent-function
+      slime-complete-symbol-function 'slime-fuzzy-complete-symbol)
+(load (expand-file-name "~/common-lisp/quicklisp/slime-helper.el"))
+;; Replace "sbcl" with the path to your implementation
+
+(require 'slime)
+;; (require 'slime-autoloads)
+;; (slime-setup '(slime-repl slime-fancy slime-banner slime-asdf slime-sbcl-exts))
+(slime-setup '(slime-banner slime-repl slime-fancy slime-asdf slime-sbcl-exts
+	       slime-autodoc slime-hyperdoc))
+
+;(speedbar-add-supported-extension ".lisp")
+(require 'hyperspec)
+(setq common-lisp-hyperspec-root
+      (concat "file://" (expand-file-name "~/data/HyperSpec/"))
+      common-lisp-hyperspec-symbol-table
+      (expand-file-name "~/data/HyperSpec/Data/Map_Sym.txt"))
+
+;; (require 'auto-complete)
+;; (global-auto-complete-mode t)
+;; ;; Maybe default-enable-multibyte-characters is t by default
+;; (setq default-enable-multibyte-characters t)
+;; (setq-default ac-sources '(ac-source-words-in-same-mode-buffers ac-source-symbols))
+
+;; (define-key ac-completing-map (kbd "C-n") 'ac-next)
+;; (define-key ac-completing-map (kbd "C-p") 'ac-previous)
+
+;; (defvar ac-slime-modes
+;;   '(lisp-mode))
+
+;; (defun ac-slime-candidates ()
+;;   "Complete candidates of the symbol at point."
+;;   (if (memq major-mode ac-slime-modes)
+;;       (let* ((end (point))
+;; 	     (beg (slime-symbol-start-pos))
+;; 	     (prefix (buffer-substring-no-properties beg end))
+;; 	     (result (slime-simple-completions prefix)))
+;; 	(destructuring-bind (completions partial) result
+;; 	  completions))))
+
+;; (defvar ac-source-slime
+;;   '((candidates . ac-slime-candidates)
+;;     (requires-num . 3)))
+
+;; (add-hook 'lisp-mode-hook (lambda ()
+;; 			    (slime-mode t)
+;; 			    (push 'ac-source-slime ac-sources)
+;; 			    (auto-complete-mode)))
+
+;; (require 'ac-slime)
+;; (add-hook 'slime-mode-hook 'set-up-slime-ac)
+;; (add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
+;; (setq ac-auto-start nil)
+;; (global-set-key "\M-/" 'auto-complete)

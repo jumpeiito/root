@@ -8,7 +8,10 @@
 (defpackage #:news-develop
   (:nicknames #:newsd)
   (:use :cl :util :iterate :cl-ppcre)
-  #+sbcl (:import-from #:sb-ext #:run-program)
+  #+sbcl (:import-from #:sb-ext
+		       #:run-program
+		       #:octets-to-string)
+  (:import-from #:drakma #:http-request)
   (:import-from #:xpath
 		#:with-namespaces
 		#:evaluate
@@ -19,7 +22,12 @@
 		#:timestamp-month
 		#:timestamp-day
 		#:today)
-  (:import-from #:util #:make-date-literally))
+  (:import-from #:util #:make-date-literally)
+  (:import-from #:stp
+		#:attribute-value
+		#:find-child-if
+		#:local-name
+		#:make-builder))
 
 (in-package #:newsd)
 
@@ -88,18 +96,18 @@
 
 (defun get-html (url coding)
   (prelude-action
-   (sb-ext:octets-to-string
-    (drakma:http-request url :external-format-in :dummy)
+   (octets-to-string
+    (http-request url :force-binary t)
     :external-format coding)))
 
 (defgeneric get-stp (obj))
 (defmethod get-stp (url)
   (chtml:parse (get-html url :SJIS)
-	       (stp:make-builder)))
+	       (make-builder)))
 
 (defmethod get-stp ((p PAPER))
   (chtml:parse (get-html (url-> p) (coding-> p))
-	       (stp:make-builder)))
+	       (make-builder)))
 
 (defun last-space-length-count (string)
   (iter (for c :in-string (reverse string))
@@ -156,8 +164,8 @@
 		       (car (akahata-date-parser stp)))))
 
 (defun node-to-href (node)
-  (stp:attribute-value
-   (stp:find-child-if (lambda (stp) (equal "a" (stp:local-name stp)))
+  (attribute-value
+   (find-child-if (lambda (stp) (equal "a" (local-name stp)))
 		  node)
    "href"))
 
@@ -205,7 +213,7 @@
 	   (collect (make-article :title title
 				  :body body
 				  :date date
-				  :day (local-time:timestamp-day date)))))))
+				  :day (timestamp-day date)))))))
 
 (defmethod make-articles ((a AKAHATA))
   (iter (with date = (date-> a))
@@ -218,7 +226,7 @@
 	   (collect (make-article :title title
 				  :body body
 				  :date date
-				  :day (local-time:timestamp-day date)))))))
+				  :day (timestamp-day date)))))))
 
 (defmethod initialize-instance :after ((p PAPER) &rest args)
   (declare (ignorable args))
@@ -254,7 +262,7 @@
 	  alist))
 
 (defun this-month-date (day)
-  (let ((today (local-time::today)))
+  (let ((today (today)))
     (make-date-literally day
 			 (timestamp-month today)
 			 (timestamp-year today))))

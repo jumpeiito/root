@@ -47,7 +47,9 @@
 
 (defun string-fold (string)
   "指定された文字数(news-base::folding-length)で文字列を折り返し、行頭に空白を付けたす。"
-  (labels ((inner (subst r)
+  (labels ((include? (char kinds)
+	     (member char kinds :test #'equal))
+	   (inner (subst r)
 	     (if (>= folding-length (length subst))
 		 (format nil "~{   ~A~^~%~}"
 			 ;; 最後に空行が出力されないようにする処理
@@ -62,11 +64,11 @@
 			   ;; 折り返し文字の次の字が「。」や「、」のと
 			   ;; きに、1文字繰り上げて、「。」「、」が行の
 			   ;; 最後に来るようにする。(禁則処理)
-			   ((member nextS terminal-char :test #'equal)
+			   ((include? nextS terminal-char)
 			    (1+ flen))
 			   ;; 折り返し文字が「「」などにならないように
 			   ;; する。
-			   ((member previous starting-char :test #'equal)
+			   ((include? previous starting-char)
 			    (1- flen))
 			   (t flen))))
 		   (inner (subseq subst _flen)

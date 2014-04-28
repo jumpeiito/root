@@ -412,6 +412,7 @@
 (add-to-list 'auto-mode-alist '("\\.fs[iylx]?$" . fsharp-mode))
 (autoload 'fsharp-mode "fsharp" "Major mode for editing F# code." t)
 (autoload 'run-fsharp "inf-fsharp" "Run an inferior F# process." t)
+(setq process-coding-system-alist (cons '("Fsi" sjis . sjis) process-coding-system-alist))
 
 (let* ((fsharp-bin "f:/FSharp/bin/")
        (fsi-command (concat fsharp-bin "Fsi"))
@@ -511,8 +512,8 @@
 
 (require 'ibuffer)
 
-(require 'smooth-scroll)
-(smooth-scroll-mode t)
+;; (require 'smooth-scroll)
+;; (smooth-scroll-mode t)
 
 (require 'kogiku)
 

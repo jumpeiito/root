@@ -1,8 +1,0 @@
-/var/log/mediatomb.log
-/var/log/#mediatomb.log#
-/etc/mediatomb/config.xml
-/etc/mediatomb/#config.xml#
-/sudo:root@jumpei-VGN-TX93NS:/etc/mediatomb/config.xml
-#_asudo_broot@jumpei-VGN-TX93NS_b_aetc_amediatomb_aconfig.xml#
-/home/jumpei/.bash_history
-/home/jumpei/#.bash_history#

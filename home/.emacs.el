@@ -60,7 +60,7 @@
 (if window-system
 (set-frame-font "Ricty Diminished-13.5")
 ;; (set-frame-font "ゆたぽん（コーディング）-13.5")
-;;(set-frame-font "Consolas-13.5")
+;; (set-frame-font "Consolas-12")
 ;; (set-frame-font "MS Gothic-13.5")
 ;; (set-frame-font "MS Mincho-13.5")
 )
@@ -77,9 +77,9 @@
   (load-theme name t)
   (enable-theme name))
 ;; (load-theme 'misterioso t)
-(select-theme 'tango)
+(select-theme 'misterioso)
 ;; (select-theme 'tango-dark)
-(select-theme 'pastels-on-dark)
+;; (select-theme 'pastels-on-dark)
 
 (menu-bar-mode -1)
 (tool-bar-mode -1)
@@ -240,8 +240,6 @@
 ;; (setq-default mw32-ime-mode-line-state-indicator "[cC]")
 ;; (setq mw32-ime-mode-line-state-indicator-list '("cC" "[  ]" "[cC]"))
 
-(setq truncate-lines nil)
-
 (load "kagofusen.el")
 
 ;; (load ".emacs.yatex")
@@ -278,12 +276,17 @@
 
 (setq-default default-coding-system 'sjis)
 
+(add-hook
+ 'shell-mode-hook
+ '(lambda ()
+    (set-buffer-process-coding-system 'sjis 'sjis)))
+
 (coding-system-put 'sjis 'category 'sjis)
 (set-language-info "Japanese" 'coding-priority
     (cons 'sjis
         (get-language-info "Japanese" 'coding-priority)))
 (set-language-environment "Japanese")
-(set-terminal-coding-system 'utf-8)
+(set-terminal-coding-system 'sjis)
 (set-keyboard-coding-system 'utf-8)
 (set-buffer-file-coding-system 'utf-8)
 (setq default-buffer-file-coding-system 'utf-8)
@@ -571,9 +574,17 @@
 (global-set-key (kbd "M-#") 'sr-speedbar-toggle)
 (put 'upcase-region 'disabled nil)
 
-(if (file-exists-p "c:/Program Files/Git/cmd/git.exe")
-    (setq magit-git-executable "c:/Program Files/Git/cmd/git.exe")
-    (setq magit-git-executable "c:/Program Files (x86)/Git/cmd/git.exe"))
+(defmacro magit-git-exe-if-exists (&rest args)
+  (if args
+      (if (file-exists-p (car args))
+	  `(setq magit-git-executable ,(car args))
+	  `(magit-git-exe-if-exists ,@(cdr args)))
+      nil))
+
+(magit-git-exe-if-exists
+ "c:/Program Files/Git/cmd/git.exe"
+ "c:/Program Files (x86)/Git/cmd/git.exe"
+ "F:/Git/cmd/git.exe")
 
 (require 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)

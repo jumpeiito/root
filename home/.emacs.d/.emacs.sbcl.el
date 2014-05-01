@@ -2,6 +2,7 @@
 ;; (add-to-list 'load-path "~/site-lisp/slime")
 (setq inferior-lisp-program "c:\\SBCL17\\sbcl.exe --no-inform")
 ;; (setq inferior-lisp-program "f:/clisp/clisp.exe -i f:/home/.clisprc")
+;; (setq inferior-lisp-program "f:\\sbcl1.1.4\\sbcl.exe --no-inform")
 (setq slime-net-coding-system 'utf-8-unix)
 (add-hook 'lisp-mode-hook (lambda ()
                             (slime-mode t)

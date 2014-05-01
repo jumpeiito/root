@@ -72,7 +72,8 @@
 			    (1- flen))
 			   (t flen))))
 		   (inner (subseq subst _flen)
-			  (cons (subseq subst 0 _flen) r))))))
+			  (cons (string-take subst _flen);; (subseq subst 0 _flen)
+				r))))))
     (inner (ppcre:regex-replace "^　" string "")
 	   nil)))
 
@@ -121,7 +122,7 @@
 
 (defun kill-last-space (string)
   (aif (last-space-length-count string)
-       (subseq string 0 (- (length string) it))
+       (string-take string (- (length string) it))
        string))
 
 (defun string-to-body (node)
@@ -296,6 +297,7 @@
   (with-open-file (op (this-month-name)
 		      :direction :output
 		      :if-exists :append
+		      :if-does-not-exist :create
 		      :external-format #+sbcl :UTF8 #+clisp charset:utf-8)
     (funcall func op)))
 

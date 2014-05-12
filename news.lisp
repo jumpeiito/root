@@ -133,7 +133,8 @@
 		       #'xpath:string-value)
 		      node)))
 
-(defun make-parser (stp &key xpath getfunc (remove-if-not #'identity))
+(defun make-parser
+    (stp &key xpath (getfunc #'string-value) (remove-if-not #'identity))
   (with-namespaces (("h" "http://www.w3.org/1999/xhtml"))
     (remove-if-not
      remove-if-not
@@ -148,18 +149,15 @@
 
 (defun ordinary-title-parser (stp)
   (make-parser stp
-	       :xpath "//h:div[@class='blogbody']/h:h3[@class='title']/h:a"
-	       :getfunc #'string-value))
+	       :xpath "//h:div[@class='blogbody']/h:h3[@class='title']/h:a"))
 
 (defun akahata-title-parser (stp)
   (make-parser stp
-	       :xpath "//h:li[@class='newslist']"
-	       :getfunc #'string-value))
+	       :xpath "//h:li[@class='newslist']"))
 
 (defun akahata-date-parser (stp)
   (make-parser stp
-	       :xpath "//h:li[@class='current']/h:a"
-	       :getfunc #'string-value))
+	       :xpath "//h:li[@class='current']/h:a"))
 
 (defun today-from-stp (stp)
   (util::strdt (format nil "~A年~A"
@@ -186,7 +184,6 @@
   (lambda (node)
     (make-parser (get-stp (node-to-href-url date node))
 		 :xpath "//h:div[@id='content']//h:p"
-		 :getfunc #'string-value
 		 :remove-if-not
 		 (lambda (str)
 		   (and (not (string= "" str))
@@ -204,32 +201,28 @@
        title)
     (strdt date)))
 
+(defmacro collect-articles (title body date)
+  `(cond
+     ((not ,date)
+      (warn "This title(~A) may be inappropriate" ,title))
+     (t
+      (collect (make-article :title ,title
+			     :body  ,body
+			     :date  ,date
+			     :day   (timestamp-day ,date))))))
+
 (defgeneric make-articles (org))
 (defmethod make-articles ((p PAPER))
   (iter (for title :in (titles-> p))
 	(for body :in (bodies-> p))
 	(for date = (title-parse-date title))
-	(cond
-	  ((not date)
-	   (warn "This title(~A) may be inappropriate" title))
-	  (t
-	   (collect (make-article :title title
-				  :body body
-				  :date date
-				  :day (timestamp-day date)))))))
+	(collect-articles title body date)))
 
 (defmethod make-articles ((a AKAHATA))
   (iter (with date = (date-> a))
 	(for title :in (titles-> a))
 	(for body :in (bodies-> a))
-	(cond
-	  ((not date)
-	   (warn "This title(~A) may be inappropriate" title))
-	  (t
-	   (collect (make-article :title title
-				  :body body
-				  :date date
-				  :day (timestamp-day date)))))))
+	(collect-articles title body date)))
 
 (defmethod initialize-instance :after ((p PAPER) &rest args)
   (declare (ignorable args))

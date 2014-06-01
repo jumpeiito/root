@@ -1,6 +1,13 @@
 (load "term/bobcat")
+(defun backward-kill-word-or-kill-region ()
+  (interactive)
+  (if (or (not transient-mark-mode) (region-active-p))
+      (kill-region (region-beginning) (region-end))
+    (backward-kill-word 1)))
+
 (defun set-key ()
   (dolist (i `(("\C-h"	. backward-delete-char)
+	       ("\C-w"  . backward-kill-word-or-kill-region)
 	       ("\C-t"	. transpose-chars)
 	       ("\C-x\C-b"	. ibuffer)
 	       ("\C-^"	. comment-region)

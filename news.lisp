@@ -36,6 +36,7 @@
 (defparameter topdir		"f:/Org/")
 (defparameter terminal-char     '("。" "、" "ー" "」" ")" "）" "”"))
 (defparameter starting-char	'("「" "(" "『" "（" "“"))
+(defparameter verbose t)
 
 (defvar alist
   '(("朝日" . "4848832")
@@ -77,6 +78,11 @@
     (inner (ppcre:regex-replace "^　" string "")
 	   nil)))
 
+(defmacro verbose-format (formatta &rest args)
+  `(if verbose
+       (format t ,formatta ,@args)
+       nil))
+
 (defstruct ARTICLE title body date day)
 
 (defclass PAPER ()
@@ -109,8 +115,11 @@
 	       (make-builder)))
 
 (defmethod get-stp ((p PAPER))
-  (chtml:parse (get-html (url-> p) (coding-> p))
-	       (make-builder)))
+  (verbose-format "---ダウンロード中: ~A~%" (name-> p))
+  (prog1
+      (chtml:parse (get-html (url-> p) (coding-> p))
+		   (make-builder))
+    (verbose-format "---ダウンロードしました: ~A~%" (name-> p))))
 
 (defun last-space-length-count (string)
   (iter (for c :in-string (reverse string))
@@ -267,6 +276,7 @@
   (let ((date (this-month-date day)))
     (make-instance 'AKAHATA
 		   :url (make-akahata-url date)
+		   :name nil
 		   :date date
 		   :coding :SJIS
 		   :body-parser #'akahata-body-parser
@@ -308,5 +318,6 @@
 	  (org-header-date day o)
 	  (iter (for x :in (ordinary-initialize))
 		(write-down x (list day) o))
-	  (write-down (make-akahata day) (list day) o)))))
+	  ;; (write-down (make-akahata day) (list day) o)
+	  ))))
 

@@ -2,6 +2,12 @@
 ;; イーマックス
 (set-language-environment "Japanese")
 
+(setenv "PATH"
+        (concat "c:\\python27\\;f:\\googlecl\\;" (getenv "PATH")))
+
+(add-to-list 'exec-path "c:/python27/")
+(add-to-list 'exec-path "f:/googlecl/")
+
 (setq load-path (append '("~/site-lisp/ddskk/"
 			  "~/site-lisp/clojure-mode/"
 			  "~/site-lisp/mm-color/"
@@ -44,6 +50,13 @@
    "\\\\"
    usb-drive-letter))
 
+(defmacro or-exists (&rest args)
+  (if args
+      (if (file-exists-p (car args))
+	  (car args)
+	  `(or-exists ,@(cdr args)))
+      nil))
+
 (load ".emacs.sbcl")
 
 (require 'skk)
@@ -62,7 +75,7 @@
 ;; (set-frame-font "ゆたぽん（コーディング）-13.5")
 ;; (set-frame-font "Consolas-12")
 ;; (set-frame-font "MS Gothic-13.5")
-;; (set-frame-font "MS Mincho-13.5")
+;;(set-frame-font "MS Mincho-13.5")
 )
 ;; (set-frame-font "MS Gothic-12"))
 ;; 
@@ -79,7 +92,7 @@
 ;; (load-theme 'misterioso t)
 ;; (select-theme 'misterioso)
 ;; (select-theme 'tango-dark)
-(select-theme 'tango-dark)
+(select-theme 'misterioso)
 
 (menu-bar-mode -1)
 (tool-bar-mode -1)
@@ -152,6 +165,7 @@
 (require 'skk-annotation)
 (require 'skk-sticky)
 (setq enable-local-eval t) 
+(setq skk-auto-insert-paren t)
 
 (defun zap-to-char (arg)
   (interactive "cZap to char: ")
@@ -474,8 +488,8 @@
 (helm-migemize-command helm-show-kill-ring)
 (helm-migemize-command helm-occur)
 
-(require 'auto-highlight-symbol)
-(global-auto-highlight-symbol-mode t)
+;; (require 'auto-highlight-symbol)
+;; (global-auto-highlight-symbol-mode t)
 
 ;; (require 'session)
 ;; (add-hook 'after-init-hook 'session-initialize)
@@ -590,7 +604,7 @@
 (global-set-key (kbd "C-=") 'er/expand-region)
 
 ;; (require 'powerline)
-
+;; 
 ;; (defun arrow-right-xpm (color1 color2)
 ;;   "Return an XPM right arrow string representing."
 ;;   (format "/* XPM */
@@ -622,9 +636,9 @@
 ;; \"..          \",
 ;; \".           \",
 ;; \"            \"};"  color1 color2))
-
-
-
+;; 
+;; 
+;; 
 ;; (defun arrow-left-xpm (color1 color2)
 ;;   "Return an XPM right arrow string representing."
 ;;   (format "/* XPM */
@@ -656,17 +670,17 @@
 ;; \"          ..\",
 ;; \"           .\",
 ;; \"            \"};"  color2 color1))
-
+;; 
 ;; (defconst color1 "#6699ff")
 ;; (defconst color2 "#ff66ff")
 ;; (defconst color3 "#696969")
-
+;; 
 ;; (defvar arrow-right-1 (create-image (arrow-right-xpm color1 color2) 'xpm t :ascent 'center))
 ;; (defvar arrow-right-2 (create-image (arrow-right-xpm color2 color3) 'xpm t :ascent 'center))
 ;; (defvar arrow-right-3 (create-image (arrow-right-xpm color3 "None") 'xpm t :ascent 'center))
 ;; (defvar arrow-left-1  (create-image (arrow-left-xpm color2 color1) 'xpm t :ascent 'center))
 ;; (defvar arrow-left-2  (create-image (arrow-left-xpm "None" color2) 'xpm t :ascent 'center))
-
+;; 
 ;; (setq-default mode-line-format
 ;;  (list  '(:eval (concat (propertize " %*" 'face 'mode-line-color-1)
 ;; 		 ;; (propertize " " 'display arrow-right-1)
@@ -677,7 +691,7 @@
 ;;                         (propertize " " 'display arrow-right-2)))
 ;;         '(:eval (concat (propertize " %m " 'face 'mode-line-color-3)
 ;;                         (propertize " " 'display arrow-right-3)))
-
+;; 
 ;;         ;; Justify right by filling with spaces to right fringe - 16
 ;;         ;; (16 should be computed rahter than hardcoded)
 ;;         '(:eval (propertize " " 'display '((space :align-to (- right-fringe 16)))))
@@ -686,22 +700,22 @@
 ;;         '(:eval (concat (propertize " " 'display arrow-left-1)
 ;;                         (propertize "%4l:%2c  " 'face 'mode-line-color-1)))
 ;; ))
-
+;; 
 ;; (make-face 'mode-line-color-1)
 ;; (set-face-attribute 'mode-line-color-1 nil
 ;;                     :foreground "#fff"
 ;;                     :background color1)
-
+;; 
 ;; (make-face 'mode-line-color-2)
 ;; (set-face-attribute 'mode-line-color-2 nil
 ;;                     :foreground "#fff"
 ;;                     :background color2)
-
+;; 
 ;; (make-face 'mode-line-color-3)
 ;; (set-face-attribute 'mode-line-color-3 nil
 ;;                     :foreground "#fff"
 ;;                     :background color3)
-
+;; 
 ;; (set-face-attribute 'mode-line nil
 ;;                     :foreground "#fff"
 ;;                     :background "#ff1493"
@@ -709,3 +723,25 @@
 ;; (set-face-attribute 'mode-line-inactive nil
 ;;                     :foreground "#fff"
 ;;                     :background "#000")
+
+(require 'rainbow-delimiters)
+
+(global-rainbow-delimiters-mode)
+
+(setq-default line-spacing 0)
+
+(load "toggle-folding")
+
+;; (require 'hlinum)
+;; (global-linum-mode)
+;; (hlinum-activate)
+
+(require 'volatile-highlights)
+(volatile-highlights-mode t)
+
+;; (require 'calfw)
+;; (require 'calfw-ical)
+;; (require 'calfw-gcal)
+;; (defun open-my-ical ()
+;;   (interactive)
+;;   (cfw:open-ical-calendar "https://www.google.com/calendar/ical/junnpit%40gmail.com/private-06598852d937e82e26cc2d85c33fb64f/basic.ics"))
